@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>Nexora Island National Map</title>
+
+<style>
+
+:root{
+--ocean:#0a1740;
+--island:#e6edff;
+--border:#3e63ff;
+--city:#ff6b6b;
+--infra:#ffd43b;
+--highway:#6c757d;
+--metro:#ff3b3b;
+}
+
+body{
+margin:0;
+font-family:system-ui,Segoe UI;
+background:var(--ocean);
+color:white;
+}
+
+header{
+background:#132c7a;
+padding:18px;
+text-align:center;
+}
+
+.layout{
+
+display:grid;
+grid-template-columns: 1fr 300px;
+gap:25px;
+max-width:1300px;
+margin:auto;
+padding:25px;
+
+}
+
+#map{
+background:transparent;
+}
+
+svg{
+width:100%;
+height:auto;
+}
+
+.ocean{
+fill:var(--ocean);
+}
+
+.island{
+fill:var(--island);
+stroke:var(--border);
+stroke-width:4;
+}
+
+.city{
+fill:var(--city);
+stroke:white;
+stroke-width:2;
+cursor:pointer;
+transition:.2s;
+}
+
+.city:hover{
+transform:scale(1.2);
+}
+
+.infrastructure{
+fill:var(--infra);
+stroke:#222;
+stroke-width:2;
+cursor:pointer;
+transition:.2s;
+}
+
+.infrastructure:hover{
+transform:scale(1.2);
+}
+
+.highway{
+stroke:var(--highway);
+stroke-width:6;
+stroke-linecap:round;
+}
+
+.metro{
+stroke:var(--metro);
+stroke-width:3;
+stroke-dasharray:8;
+}
+
+.runway{
+stroke:#222;
+stroke-width:10;
+}
+
+.label{
+font-size:12px;
+fill:#111;
+font-weight:600;
+pointer-events:none;
+}
+
+.panel{
+
+background:white;
+color:#222;
+border-radius:12px;
+padding:20px;
+box-shadow:0 10px 25px rgba(0,0,0,.25);
+
+}
+
+.panel h3{
+margin-top:0;
+}
+
+.legend-item{
+display:flex;
+align-items:center;
+gap:10px;
+margin:8px 0;
+}
+
+.legend-box{
+width:16px;
+height:16px;
+border-radius:4px;
+}
+
+.city-box{background:var(--city);}
+.infra-box{background:var(--infra);}
+.highway-box{background:var(--highway);}
+.metro-box{
+background:linear-gradient(90deg,var(--metro) 50%,transparent 50%);
+background-size:6px 3px;
+}
+
+@media(max-width:900px){
+
+.layout{
+grid-template-columns:1fr;
+}
+
+}
+
+</style>
+</head>
+
+<body>
+
+<header>
+
+<h2>Nexora Island Smart Nation Map</h2>
+<p>National Infrastructure & Technology Ecosystem</p>
+
+</header>
+
+
+<div class="layout">
+
+<!-- MAP -->
+
+<div id="map">
+
+<svg viewBox="0 0 1000 650">
+
+<rect width="100%" height="100%" class="ocean"/>
+
+<path class="island"
+d="
+M220 140
+Q420 40 680 150
+Q850 260 820 420
+Q760 570 560 600
+Q360 610 200 520
+Q100 430 120 270
+Z"/>
+
+
+<!-- Highways -->
+
+<line class="highway" x1="350" y1="320" x2="650" y2="320"/>
+<line class="highway" x1="350" y1="320" x2="300" y2="470"/>
+<line class="highway" x1="650" y1="320" x2="760" y2="430"/>
+
+
+<!-- Metro -->
+
+<line class="metro" x1="460" y1="230" x2="580" y2="330"/>
+<line class="metro" x1="580" y1="330" x2="360" y2="360"/>
+
+
+<!-- Cities -->
+
+<circle class="city" cx="460" cy="230" r="9"
+onclick="info('Nexora City','Capital city and national government center.')"/>
+<text x="470" y="220" class="label">Nexora City</text>
+
+
+<circle class="city" cx="600" cy="340" r="9"
+onclick="info('Techno City','Technology startups and Nexora innovation economy.')"/>
+<text x="610" y="330" class="label">Techno City</text>
+
+
+<circle class="city" cx="360" cy="360" r="9"
+onclick="info('Nova Research City','Home of Nexora universities and research labs.')"/>
+<text x="370" y="350" class="label">Research City</text>
+
+
+<!-- Infrastructure -->
+
+<circle class="infrastructure" cx="300" cy="470" r="10"
+onclick="info('Nexora International Port','Global logistics and shipping gateway.')"/>
+<text x="310" y="460" class="label">Port</text>
+
+
+<line class="runway" x1="730" y1="420" x2="780" y2="460"/>
+
+<circle class="infrastructure" cx="760" cy="440" r="10"
+onclick="info('Nexora International Airport','Primary aviation hub of the island.')"/>
+<text x="770" y="430" class="label">Airport</text>
+
+
+<circle class="infrastructure" cx="500" cy="470" r="10"
+onclick="info('Orbital Research Center','Satellite and aerospace development campus.')"/>
+<text x="510" y="460" class="label">Space Center</text>
+
+
+<circle class="infrastructure" cx="520" cy="150" r="10"
+onclick="info('Solar Energy Park','Renewable energy infrastructure powering Nexora.')"/>
+<text x="530" y="140" class="label">Solar Park</text>
+
+
+<circle class="infrastructure" cx="230" cy="350" r="10"
+onclick="info('Nexora Nature Reserve','Protected ecological forest zone.')"/>
+<text x="240" y="340" class="label">Nature Reserve</text>
+
+</svg>
+
+</div>
+
+
+<!-- SIDE PANELS -->
+
+<div>
+
+<div class="panel">
+
+<h3>Map Legend</h3>
+
+<div class="legend-item">
+<div class="legend-box city-box"></div>
+City Cluster
+</div>
+
+<div class="legend-item">
+<div class="legend-box infra-box"></div>
+Infrastructure
+</div>
+
+<div class="legend-item">
+<div class="legend-box highway-box"></div>
+Highway
+</div>
+
+<div class="legend-item">
+<div class="legend-box metro-box"></div>
+Metro Line
+</div>
+
+</div>
+
+
+<div class="panel" style="margin-top:20px" id="info">
+
+<h3>Welcome to Nexora Island</h3>
+
+<p>
+Click on cities or infrastructure points to explore Nexora’s smart
+nation ecosystem.
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+
+<script>
+
+function info(title,desc){
+
+document.getElementById("info").innerHTML =
+"<h3>"+title+"</h3><p>"+desc+"</p>";
+
+}
+
+</script>
+
+</body>
+</html>
