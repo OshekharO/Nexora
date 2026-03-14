@@ -243,7 +243,13 @@ body{
       <ellipse cx="580" cy="230" rx="60" ry="35" class="island-hills"/>
       <ellipse cx="480" cy="450" rx="55" ry="30" class="island-hills"/>
       <ellipse cx="220" cy="380" rx="50" ry="35" fill="rgba(34,197,94,.18)" stroke="rgba(34,197,94,.35)" stroke-width="1.5"/>
-      <ellipse cx="680" cy="490" rx="35" ry="22" fill="rgba(6,182,212,.12)" stroke="rgba(6,182,212,.25)" stroke-width="1"/>
+      <!-- Waterways: river and lakes -->
+      <path d="M385 293 Q360 335 335 373 Q308 413 278 443 Q258 462 240 478"
+        fill="none" stroke="rgba(6,182,212,.45)" stroke-width="9" stroke-linecap="round"/>
+      <path d="M385 293 Q360 335 335 373 Q308 413 278 443 Q258 462 240 478"
+        fill="none" stroke="rgba(255,255,255,.18)" stroke-width="3" stroke-linecap="round"/>
+      <ellipse cx="345" cy="385" rx="18" ry="11" fill="rgba(6,182,212,.28)" stroke="rgba(6,182,212,.5)" stroke-width="1.5"/>
+      <ellipse cx="680" cy="490" rx="50" ry="30" fill="rgba(6,182,212,.2)" stroke="rgba(6,182,212,.4)" stroke-width="1.5"/>
       <path class="highway-line" d="M250 335 L345 335 L620 335 L740 400"/>
       <path class="highway-line" d="M345 335 L295 480"/>
       <path class="highway-line-thin" d="M460 230 L345 335"/>
@@ -353,19 +359,31 @@ body{
         data-stat2="Zone West" data-stat2-label="Location"
         onclick="selectPoint(this)" tabindex="0" role="button"
         aria-label="Medical and Biotech Hub — click for details"/>
+      <circle class="infra-dot" id="dot-zoo"
+        cx="262" cy="452" r="10"
+        data-type="infra" data-title="Nexora City Zoo"
+        data-desc="Home to over 200 native and exotic species. A premier wildlife conservation centre and family attraction nestled in Nexora's green belt, adjacent to the Nature Reserve."
+        data-stat1="Conservation" data-stat1-label="Focus"
+        data-stat2="Zone West" data-stat2-label="Location"
+        onclick="selectPoint(this)" tabindex="0" role="button"
+        aria-label="Nexora City Zoo — click for details"/>
       <circle id="activeRing" class="active-ring" cx="-999" cy="-999" r="18" stroke="#06b6d4" display="none"/>
       <text x="474" y="222" class="map-label">Nexora City ★</text>
       <text x="590" y="312" class="map-label">Techno City</text>
       <text x="366" y="352" class="map-label">Research City</text>
       <text x="422" y="537" class="map-label">Harbor Town</text>
-      <text x="692" y="242" class="map-label">Eastern Valley</text>
+      <text x="692" y="242" class="map-label" text-anchor="end">Eastern Valley City</text>
       <text x="308" y="470" class="map-label-sm">Port</text>
-      <text x="726" y="432" class="map-label-sm" text-anchor="end">International Airport</text>
+      <text x="726" y="428" class="map-label-sm" text-anchor="end">Nexora Int'l</text>
+      <text x="726" y="441" class="map-label-sm" text-anchor="end">Airport</text>
       <text x="502" y="482" class="map-label-sm">Space Ctr</text>
       <text x="522" y="138" class="map-label-sm">Solar Park</text>
       <text x="230" y="370" class="map-label-sm">Nature Reserve</text>
       <text x="582" y="442" class="map-label-sm">Data Center</text>
       <text x="402" y="412" class="map-label-sm">Medical Hub</text>
+      <text x="274" y="444" class="map-label-sm">City Zoo</text>
+      <text x="294" y="402" class="map-label-sm" fill="rgba(6,182,212,.7)" font-style="italic" transform="rotate(-52 294 402)">Nexora River</text>
+      <text x="680" y="494" class="map-label-sm" text-anchor="middle" fill="rgba(6,182,212,.7)" font-style="italic">East Lake</text>
       <text x="160" y="165" class="coast-label" transform="rotate(-30 160 165)">North Coast</text>
       <text x="720" y="165" class="coast-label" transform="rotate(25 720 165)">East Coast</text>
       <text x="170" y="580" class="coast-label" transform="rotate(15 170 580)">West Bay</text>
@@ -443,7 +461,7 @@ body{
           <div style="font-size:.7rem;color:#64748b;font-weight:600;text-transform:uppercase;letter-spacing:.04em;">Smart Cities</div>
         </div>
         <div style="background:#f8faff;border:1px solid #e2e8f0;border-radius:8px;padding:.6rem;text-align:center;">
-          <div style="font-size:1.1rem;font-weight:800;color:#1e40af;">7</div>
+          <div style="font-size:1.1rem;font-weight:800;color:#1e40af;">8</div>
           <div style="font-size:.7rem;color:#64748b;font-weight:600;text-transform:uppercase;letter-spacing:.04em;">Infrastructure</div>
         </div>
         <div style="background:#f8faff;border:1px solid #e2e8f0;border-radius:8px;padding:.6rem;text-align:center;">
