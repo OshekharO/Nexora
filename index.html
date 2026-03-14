@@ -228,7 +228,8 @@ img { max-width: 100%; height: auto; }
 .navbar {
   padding: 1rem 0;
   transition: background var(--transition), box-shadow var(--transition), padding var(--transition);
-  background: transparent;
+  background: rgba(10,22,40,.97);
+  backdrop-filter: blur(12px);
 }
 
 .navbar.scrolled {
@@ -1673,6 +1674,7 @@ sections.forEach(s => observer.observe(s));
 // ── Scroll to top ─────────────────────────────────────────────
 const scrollTopBtn = document.getElementById('scrollTop');
 scrollTopBtn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+handleScroll();
 
 // ── Animated counters ─────────────────────────────────────────
 const counters = document.querySelectorAll('[data-count]');
