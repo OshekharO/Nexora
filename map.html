@@ -3,310 +3,483 @@
 <head>
 
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-<title>Nexora Island National Map</title>
+<title>Nexora Island Interactive Map | Smart Nation Infrastructure</title>
 
-<style>
+<meta name="description" content="Explore the Nexora Island interactive map — discover smart cities, technology districts, transport infrastructure, the international airport, port, and more.">
+<meta name="keywords" content="Nexora Island map, Nexora City, Techno City, Research City, Nexora Airport, Nexora Port, smart nation, innovation island">
+<meta name="robots" content="index, follow">
+<meta name="theme-color" content="#0a1628">
 
-:root{
---ocean:#0a1740;
---island:#e6edff;
---border:#3e63ff;
---city:#ff6b6b;
---infra:#ffd43b;
---highway:#6c757d;
---metro:#ff3b3b;
+<link rel="canonical" href="https://nexora.rweb.site/map.html">
+
+<meta property="og:title" content="Nexora Island Interactive Map">
+<meta property="og:description" content="Explore cities, infrastructure, and technology districts on the Nexora Island smart nation map.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://nexora.rweb.site/map.html">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Nexora Island Interactive Map">
+<meta name="twitter:description" content="Explore Nexora Island's smart cities and infrastructure.">
+
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%230a1628'/><text x='50%25' y='55%25' dominant-baseline='middle' text-anchor='middle' font-family='system-ui' font-weight='800' font-size='14' fill='%2306b6d4'>NX</text></svg>">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Map",
+  "name": "Nexora Island National Map",
+  "description": "Interactive map of Nexora Island showing cities, infrastructure, and technology districts.",
+  "url": "https://nexora.rweb.site/map.html",
+  "about": {
+    "@type": "Place",
+    "name": "Nexora Island",
+    "url": "https://nexora.rweb.site"
+  }
 }
-
-body{
-margin:0;
-font-family:system-ui,Segoe UI;
-background:var(--ocean);
-color:white;
-}
-
-header{
-background:#132c7a;
-padding:18px;
-text-align:center;
-}
-
-.layout{
-
-display:grid;
-grid-template-columns: 1fr 300px;
-gap:25px;
-max-width:1300px;
-margin:auto;
-padding:25px;
-
-}
-
-#map{
-background:transparent;
-}
-
-svg{
-width:100%;
-height:auto;
-}
-
-.ocean{
-fill:var(--ocean);
-}
-
-.island{
-fill:var(--island);
-stroke:var(--border);
-stroke-width:4;
-}
-
-.city{
-fill:var(--city);
-stroke:white;
-stroke-width:2;
-cursor:pointer;
-transition:.2s;
-}
-
-.city:hover{
-transform:scale(1.2);
-}
-
-.infrastructure{
-fill:var(--infra);
-stroke:#222;
-stroke-width:2;
-cursor:pointer;
-transition:.2s;
-}
-
-.infrastructure:hover{
-transform:scale(1.2);
-}
-
-.highway{
-stroke:var(--highway);
-stroke-width:6;
-stroke-linecap:round;
-}
-
-.metro{
-stroke:var(--metro);
-stroke-width:3;
-stroke-dasharray:8;
-}
-
-.runway{
-stroke:#222;
-stroke-width:10;
-}
-
-.label{
-font-size:12px;
-fill:#111;
-font-weight:600;
-pointer-events:none;
-}
-
-.panel{
-
-background:white;
-color:#222;
-border-radius:12px;
-padding:20px;
-box-shadow:0 10px 25px rgba(0,0,0,.25);
-
-}
-
-.panel h3{
-margin-top:0;
-}
-
-.legend-item{
-display:flex;
-align-items:center;
-gap:10px;
-margin:8px 0;
-}
-
-.legend-box{
-width:16px;
-height:16px;
-border-radius:4px;
-}
-
-.city-box{background:var(--city);}
-.infra-box{background:var(--infra);}
-.highway-box{background:var(--highway);}
-.metro-box{
-background:linear-gradient(90deg,var(--metro) 50%,transparent 50%);
-background-size:6px 3px;
-}
-
-@media(max-width:900px){
-
-.layout{
-grid-template-columns:1fr;
-}
-
-}
-
-</style>
-</head>
-
-<body>
-
-<header>
-
-<h2>Nexora Island Smart Nation Map</h2>
-<p>National Infrastructure & Technology Ecosystem</p>
-
-</header>
-
-
-<div class="layout">
-
-<!-- MAP -->
-
-<div id="map">
-
-<svg viewBox="0 0 1000 650">
-
-<rect width="100%" height="100%" class="ocean"/>
-
-<path class="island"
-d="
-M220 140
-Q420 40 680 150
-Q850 260 820 420
-Q760 570 560 600
-Q360 610 200 520
-Q100 430 120 270
-Z"/>
-
-
-<!-- Highways -->
-
-<line class="highway" x1="350" y1="320" x2="650" y2="320"/>
-<line class="highway" x1="350" y1="320" x2="300" y2="470"/>
-<line class="highway" x1="650" y1="320" x2="760" y2="430"/>
-
-
-<!-- Metro -->
-
-<line class="metro" x1="460" y1="230" x2="580" y2="330"/>
-<line class="metro" x1="580" y1="330" x2="360" y2="360"/>
-
-
-<!-- Cities -->
-
-<circle class="city" cx="460" cy="230" r="9"
-onclick="info('Nexora City','Capital city and national government center.')"/>
-<text x="470" y="220" class="label">Nexora City</text>
-
-
-<circle class="city" cx="600" cy="340" r="9"
-onclick="info('Techno City','Technology startups and Nexora innovation economy.')"/>
-<text x="610" y="330" class="label">Techno City</text>
-
-
-<circle class="city" cx="360" cy="360" r="9"
-onclick="info('Nova Research City','Home of Nexora universities and research labs.')"/>
-<text x="370" y="350" class="label">Research City</text>
-
-
-<!-- Infrastructure -->
-
-<circle class="infrastructure" cx="300" cy="470" r="10"
-onclick="info('Nexora International Port','Global logistics and shipping gateway.')"/>
-<text x="310" y="460" class="label">Port</text>
-
-
-<line class="runway" x1="730" y1="420" x2="780" y2="460"/>
-
-<circle class="infrastructure" cx="760" cy="440" r="10"
-onclick="info('Nexora International Airport','Primary aviation hub of the island.')"/>
-<text x="770" y="430" class="label">Airport</text>
-
-
-<circle class="infrastructure" cx="500" cy="470" r="10"
-onclick="info('Orbital Research Center','Satellite and aerospace development campus.')"/>
-<text x="510" y="460" class="label">Space Center</text>
-
-
-<circle class="infrastructure" cx="520" cy="150" r="10"
-onclick="info('Solar Energy Park','Renewable energy infrastructure powering Nexora.')"/>
-<text x="530" y="140" class="label">Solar Park</text>
-
-
-<circle class="infrastructure" cx="230" cy="350" r="10"
-onclick="info('Nexora Nature Reserve','Protected ecological forest zone.')"/>
-<text x="240" y="340" class="label">Nature Reserve</text>
-
-</svg>
-
-</div>
-
-
-<!-- SIDE PANELS -->
-
-<div>
-
-<div class="panel">
-
-<h3>Map Legend</h3>
-
-<div class="legend-item">
-<div class="legend-box city-box"></div>
-City Cluster
-</div>
-
-<div class="legend-item">
-<div class="legend-box infra-box"></div>
-Infrastructure
-</div>
-
-<div class="legend-item">
-<div class="legend-box highway-box"></div>
-Highway
-</div>
-
-<div class="legend-item">
-<div class="legend-box metro-box"></div>
-Metro Line
-</div>
-
-</div>
-
-
-<div class="panel" style="margin-top:20px" id="info">
-
-<h3>Welcome to Nexora Island</h3>
-
-<p>
-Click on cities or infrastructure points to explore Nexora’s smart
-nation ecosystem.
-</p>
-
-</div>
-
-</div>
-
-</div>
-
-
-<script>
-
-function info(title,desc){
-
-document.getElementById("info").innerHTML =
-"<h3>"+title+"</h3><p>"+desc+"</p>";
-
-}
-
 </script>
 
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+<style>
+:root {
+  --ocean:#0a1740;--island:#e8eeff;--island-dark:#d4deff;
+  --border:#3e63ff;--city:#ef4444;--city-glow:rgba(239,68,68,.35);
+  --infra:#f59e0b;--infra-glow:rgba(245,158,11,.35);
+  --highway:#94a3b8;--metro:#f43f5e;
+  --dark:#0a1628;--accent:#06b6d4;--primary:#1e40af;
+  --text:#1e293b;--text-muted:#64748b;--panel-bg:#ffffff;
+  --shadow:0 8px 30px rgba(0,0,0,.18);--radius:14px;
+  --transition:.3s cubic-bezier(.4,0,.2,1);
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{
+  font-family:'Segoe UI',system-ui,-apple-system,sans-serif;
+  background:var(--ocean);color:#fff;
+  min-height:100vh;display:flex;flex-direction:column;
+}
+.site-header{
+  background:linear-gradient(135deg,#0a1628,#0f2a6e);
+  border-bottom:1px solid rgba(6,182,212,.2);
+  padding:.9rem 1.5rem;display:flex;align-items:center;
+  justify-content:space-between;flex-wrap:wrap;gap:.75rem;
+  position:sticky;top:0;z-index:100;
+  box-shadow:0 4px 20px rgba(0,0,0,.3);
+}
+.header-brand{display:flex;align-items:center;gap:.75rem;text-decoration:none;color:#fff;}
+.header-brand .brand-icon{
+  width:36px;height:36px;
+  background:linear-gradient(135deg,#3b82f6,#06b6d4);
+  border-radius:8px;display:flex;align-items:center;justify-content:center;
+  font-weight:900;font-size:.75rem;letter-spacing:.02em;flex-shrink:0;
+}
+.header-title h1{font-size:1rem;font-weight:800;color:#fff;line-height:1.1;}
+.header-title p{font-size:.72rem;color:rgba(255,255,255,.55);font-weight:500;margin:0;letter-spacing:.03em;}
+.header-back{
+  display:inline-flex;align-items:center;gap:.4rem;color:rgba(255,255,255,.7);
+  text-decoration:none;font-size:.8rem;font-weight:600;
+  padding:.4rem .9rem;border:1px solid rgba(255,255,255,.15);border-radius:50px;
+  transition:var(--transition);white-space:nowrap;
+}
+.header-back:hover{color:var(--accent);border-color:rgba(6,182,212,.5);background:rgba(6,182,212,.08);}
+.map-layout{
+  flex:1;display:grid;grid-template-columns:1fr 320px;
+  max-width:1440px;margin:0 auto;width:100%;
+  padding:1.5rem;gap:1.25rem;
+}
+.map-canvas{
+  background:var(--ocean);border-radius:var(--radius);overflow:hidden;
+  border:1px solid rgba(6,182,212,.15);box-shadow:var(--shadow);position:relative;
+}
+.map-canvas svg{display:block;width:100%;height:auto;}
+.island-body{fill:var(--island);stroke:var(--border);stroke-width:3;filter:drop-shadow(0 4px 16px rgba(62,99,255,.2));}
+.island-hills{fill:var(--island-dark);opacity:.6;}
+.city-dot{
+  fill:var(--city);stroke:white;stroke-width:2.5;cursor:pointer;
+  transition:r var(--transition),filter var(--transition);
+  filter:drop-shadow(0 0 6px var(--city-glow));
+}
+.city-dot:hover{filter:drop-shadow(0 0 12px var(--city-glow));}
+.infra-dot{
+  fill:var(--infra);stroke:#222;stroke-width:1.5;cursor:pointer;
+  transition:r var(--transition),filter var(--transition);
+  filter:drop-shadow(0 0 5px var(--infra-glow));
+}
+.infra-dot:hover{filter:drop-shadow(0 0 12px var(--infra-glow));}
+.highway-line{stroke:var(--highway);stroke-width:5;stroke-linecap:round;fill:none;opacity:.7;}
+.highway-line-thin{stroke:var(--highway);stroke-width:3;stroke-linecap:round;fill:none;opacity:.5;}
+.metro-line{stroke:var(--metro);stroke-width:2.5;stroke-dasharray:8 4;fill:none;opacity:.9;}
+.runway-line{stroke:#374151;stroke-width:12;stroke-linecap:round;fill:none;}
+.runway-marking{stroke:#fff;stroke-width:2;stroke-dasharray:6 6;fill:none;}
+.map-label{font-size:11px;fill:#1e293b;font-weight:700;pointer-events:none;font-family:'Segoe UI',system-ui,sans-serif;}
+.map-label-sm{font-size:9.5px;fill:#374151;font-weight:600;pointer-events:none;font-family:'Segoe UI',system-ui,sans-serif;}
+.water-label{font-size:16px;fill:rgba(6,182,212,.3);font-weight:700;font-style:italic;pointer-events:none;letter-spacing:.08em;font-family:'Segoe UI',system-ui,sans-serif;}
+.coast-label{font-size:10px;fill:rgba(255,255,255,.35);font-weight:600;pointer-events:none;font-family:'Segoe UI',system-ui,sans-serif;}
+.active-ring{fill:none;stroke-width:3;animation:pulse-ring 1.5s ease-out infinite;pointer-events:none;}
+@keyframes pulse-ring{0%{stroke-width:3;opacity:.9;}100%{stroke-width:10;opacity:0;}}
+.sidebar{display:flex;flex-direction:column;gap:1rem;}
+.panel{
+  background:var(--panel-bg);color:var(--text);border-radius:var(--radius);
+  padding:1.25rem;box-shadow:var(--shadow);border:1px solid rgba(30,64,175,.08);
+}
+.panel-header{
+  display:flex;align-items:center;gap:.6rem;margin-bottom:.9rem;
+  padding-bottom:.75rem;border-bottom:1px solid #e2e8f0;
+}
+.panel-header-icon{
+  width:32px;height:32px;border-radius:8px;
+  background:linear-gradient(135deg,#3b82f6,#06b6d4);
+  display:flex;align-items:center;justify-content:center;
+  color:#fff;font-size:.75rem;flex-shrink:0;
+}
+.panel-header h2{font-size:.95rem;font-weight:700;color:var(--text);margin:0;}
+.legend-item{
+  display:flex;align-items:center;gap:.75rem;padding:.45rem .5rem;
+  border-radius:8px;transition:background var(--transition);
+  font-size:.83rem;color:var(--text);font-weight:500;
+}
+.legend-item:hover{background:#f1f5f9;}
+.legend-dot{width:14px;height:14px;border-radius:50%;flex-shrink:0;}
+.legend-line{width:26px;height:4px;border-radius:2px;flex-shrink:0;}
+.legend-dashed{width:26px;height:0;border-top:3px dashed var(--metro);flex-shrink:0;}
+#infoPanel{flex:1;min-height:180px;}
+.info-placeholder{text-align:center;padding:1.5rem .5rem;color:var(--text-muted);}
+.info-placeholder .placeholder-icon{font-size:2rem;margin-bottom:.75rem;opacity:.4;}
+.info-placeholder p{font-size:.85rem;line-height:1.5;}
+.info-content{display:none;}
+.info-content.active{display:block;}
+.info-type-badge{
+  display:inline-flex;align-items:center;gap:.35rem;font-size:.7rem;font-weight:700;
+  letter-spacing:.06em;text-transform:uppercase;padding:.25rem .7rem;
+  border-radius:50px;margin-bottom:.75rem;
+}
+.info-type-city{background:rgba(239,68,68,.1);color:#dc2626;}
+.info-type-infra{background:rgba(245,158,11,.1);color:#d97706;}
+.info-title{font-size:1.05rem;font-weight:800;color:var(--text);margin-bottom:.5rem;}
+.info-desc{font-size:.86rem;color:var(--text-muted);line-height:1.6;margin-bottom:1rem;}
+.info-stats{display:grid;grid-template-columns:1fr 1fr;gap:.5rem;}
+.info-stat{background:#f8faff;border:1px solid #e2e8f0;border-radius:8px;padding:.6rem .75rem;text-align:center;}
+.info-stat-value{font-size:.95rem;font-weight:800;color:var(--primary);display:block;}
+.info-stat-label{font-size:.7rem;color:var(--text-muted);font-weight:600;letter-spacing:.04em;text-transform:uppercase;display:block;margin-top:.15rem;}
+.filter-group{display:flex;gap:.5rem;flex-wrap:wrap;}
+.filter-btn{
+  font-size:.75rem;font-weight:700;padding:.3rem .75rem;border-radius:50px;
+  border:1px solid #e2e8f0;background:#fff;color:var(--text-muted);
+  cursor:pointer;transition:var(--transition);display:flex;align-items:center;gap:.3rem;
+}
+.filter-btn:hover,.filter-btn.active{background:var(--primary);color:#fff;border-color:var(--primary);}
+.map-tooltip{
+  position:fixed;background:rgba(10,22,40,.92);color:#fff;
+  border:1px solid rgba(6,182,212,.3);border-radius:8px;padding:.5rem .9rem;
+  font-size:.78rem;font-weight:600;pointer-events:none;opacity:0;
+  transform:translateY(-4px);transition:opacity .2s,transform .2s;z-index:9999;
+  backdrop-filter:blur(6px);white-space:nowrap;
+}
+.map-tooltip.visible{opacity:1;transform:translateY(0);}
+@media(max-width:960px){
+  .map-layout{grid-template-columns:1fr;}
+  .sidebar{display:grid;grid-template-columns:1fr 1fr;}
+  #infoPanel{grid-column:1/-1;}
+}
+@media(max-width:600px){
+  .map-layout{padding:.75rem;gap:.75rem;}
+  .site-header{padding:.75rem 1rem;}
+  .sidebar{grid-template-columns:1fr;}
+}
+</style>
+</head>
+<body>
+
+<header class="site-header" role="banner">
+  <a href="index.html" class="header-brand" aria-label="Back to Nexora Island homepage">
+    <div class="brand-icon" aria-hidden="true">NX</div>
+    <div class="header-title">
+      <h1>Nexora Island</h1>
+      <p>Smart Nation Map</p>
+    </div>
+  </a>
+  <a href="index.html" class="header-back" aria-label="Return to main portal">
+    <i class="fa-solid fa-arrow-left" aria-hidden="true"></i>
+    Main Portal
+  </a>
+</header>
+
+<div class="map-tooltip" id="tooltip" role="tooltip" aria-live="polite"></div>
+
+<main class="map-layout" id="main">
+
+  <div class="map-canvas" role="img" aria-label="Interactive map of Nexora Island">
+    <svg viewBox="0 0 1000 680" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <rect width="1000" height="680" fill="#0a1740"/>
+      <ellipse cx="490" cy="340" rx="490" ry="330" fill="none" stroke="rgba(6,182,212,.04)" stroke-width="40"/>
+      <ellipse cx="490" cy="340" rx="430" ry="280" fill="none" stroke="rgba(6,182,212,.05)" stroke-width="30"/>
+      <text x="80" y="100" class="water-label">NEXORA</text>
+      <text x="65" y="125" class="water-label">SEA</text>
+      <text x="810" y="580" class="water-label">EAST</text>
+      <text x="800" y="605" class="water-label">CHANNEL</text>
+      <g transform="translate(920,80)">
+        <circle cx="0" cy="0" r="28" fill="rgba(6,182,212,.08)" stroke="rgba(6,182,212,.2)" stroke-width="1"/>
+        <text x="0" y="-14" text-anchor="middle" font-size="10" fill="rgba(255,255,255,.7)" font-weight="700" font-family="system-ui">N</text>
+        <text x="0" y="22"  text-anchor="middle" font-size="8" fill="rgba(255,255,255,.4)" font-weight="600" font-family="system-ui">S</text>
+        <text x="16" y="5"  text-anchor="middle" font-size="8" fill="rgba(255,255,255,.4)" font-weight="600" font-family="system-ui">E</text>
+        <text x="-16" y="5" text-anchor="middle" font-size="8" fill="rgba(255,255,255,.4)" font-weight="600" font-family="system-ui">W</text>
+        <line x1="0" y1="-20" x2="0" y2="20" stroke="rgba(255,255,255,.3)" stroke-width="1"/>
+        <line x1="-20" y1="0" x2="20" y2="0" stroke="rgba(255,255,255,.3)" stroke-width="1"/>
+        <polygon points="0,-20 4,-8 0,-4 -4,-8" fill="#06b6d4" opacity=".8"/>
+      </g>
+      <g transform="translate(40,640)">
+        <line x1="0" y1="0" x2="80" y2="0" stroke="rgba(255,255,255,.4)" stroke-width="2"/>
+        <line x1="0" y1="-5" x2="0" y2="5" stroke="rgba(255,255,255,.4)" stroke-width="2"/>
+        <line x1="80" y1="-5" x2="80" y2="5" stroke="rgba(255,255,255,.4)" stroke-width="2"/>
+        <text x="40" y="-8" text-anchor="middle" font-size="9" fill="rgba(255,255,255,.4)" font-family="system-ui">10 km</text>
+      </g>
+      <path class="island-body"
+        d="M215 135 Q290 70 430 70 Q570 68 680 135 Q790 195 810 310 Q830 430 760 520 Q680 600 540 610 Q380 618 255 555 Q140 490 130 370 Q115 230 215 135 Z"/>
+      <ellipse cx="360" cy="280" rx="70" ry="40" class="island-hills"/>
+      <ellipse cx="580" cy="230" rx="60" ry="35" class="island-hills"/>
+      <ellipse cx="480" cy="450" rx="55" ry="30" class="island-hills"/>
+      <ellipse cx="220" cy="380" rx="50" ry="35" fill="rgba(34,197,94,.18)" stroke="rgba(34,197,94,.35)" stroke-width="1.5"/>
+      <ellipse cx="680" cy="490" rx="35" ry="22" fill="rgba(6,182,212,.12)" stroke="rgba(6,182,212,.25)" stroke-width="1"/>
+      <path class="highway-line" d="M250 335 L345 335 L620 335 L740 400"/>
+      <path class="highway-line" d="M345 335 L295 480"/>
+      <path class="highway-line-thin" d="M460 230 L345 335"/>
+      <path class="highway-line-thin" d="M580 320 L620 335"/>
+      <path class="metro-line" d="M460 230 Q520 275 580 320"/>
+      <path class="metro-line" d="M580 320 Q480 345 355 360"/>
+      <path class="metro-line" d="M355 360 Q325 400 296 478"/>
+      <line class="runway-line" x1="715" y1="418" x2="760" y2="460"/>
+      <line class="runway-marking" x1="715" y1="418" x2="760" y2="460"/>
+      <circle class="city-dot" id="dot-nexora-city"
+        cx="460" cy="230" r="11"
+        data-type="city" data-title="Nexora City"
+        data-desc="Capital city and national government center. Home to the Presidential Palace, Parliament, and central administration."
+        data-stat1="Capital" data-stat1-label="Status"
+        data-stat2="Est. 2026" data-stat2-label="Founded"
+        onclick="selectPoint(this)" tabindex="0" role="button"
+        aria-label="Nexora City — click for details"/>
+      <circle class="city-dot" id="dot-techno-city"
+        cx="580" cy="320" r="9"
+        data-type="city" data-title="Techno City"
+        data-desc="Technology startup hub and home of Nexora's innovation economy. Hosts the Nexora Tech Exchange and major R&D campuses."
+        data-stat1="Tech Hub" data-stat1-label="Type"
+        data-stat2="Zone 2" data-stat2-label="District"
+        onclick="selectPoint(this)" tabindex="0" role="button"
+        aria-label="Techno City — click for details"/>
+      <circle class="city-dot" id="dot-research-city"
+        cx="355" cy="360" r="9"
+        data-type="city" data-title="Nova Research City"
+        data-desc="Home of Nexora's universities, research institutions, and advanced science labs. A world-class academic district."
+        data-stat1="Academic" data-stat1-label="Type"
+        data-stat2="Zone 3" data-stat2-label="District"
+        onclick="selectPoint(this)" tabindex="0" role="button"
+        aria-label="Nova Research City — click for details"/>
+      <circle class="infra-dot" id="dot-port"
+        cx="296" cy="478" r="10"
+        data-type="infra" data-title="Nexora International Port"
+        data-desc="Global logistics and shipping gateway. Handles cargo and passenger operations connecting Nexora to international maritime routes."
+        data-stat1="Maritime" data-stat1-label="Type"
+        data-stat2="Zone South" data-stat2-label="Location"
+        onclick="selectPoint(this)" tabindex="0" role="button"
+        aria-label="Nexora International Port — click for details"/>
+      <circle class="infra-dot" id="dot-airport"
+        cx="738" cy="440" r="10"
+        data-type="infra" data-title="Nexora International Airport"
+        data-desc="Primary aviation hub of Nexora Island. Serves domestic and international routes with state-of-the-art terminal facilities."
+        data-stat1="Aviation" data-stat1-label="Type"
+        data-stat2="Zone East" data-stat2-label="Location"
+        onclick="selectPoint(this)" tabindex="0" role="button"
+        aria-label="Nexora International Airport — click for details"/>
+      <circle class="infra-dot" id="dot-space"
+        cx="490" cy="490" r="10"
+        data-type="infra" data-title="Orbital Research Center"
+        data-desc="Satellite and aerospace development campus. Leads Nexora's space program and orbital research initiatives."
+        data-stat1="Aerospace" data-stat1-label="Type"
+        data-stat2="Zone Central" data-stat2-label="Location"
+        onclick="selectPoint(this)" tabindex="0" role="button"
+        aria-label="Orbital Research Center — click for details"/>
+      <circle class="infra-dot" id="dot-solar"
+        cx="510" cy="145" r="10"
+        data-type="infra" data-title="Solar Energy Park"
+        data-desc="Renewable energy infrastructure powering Nexora Island. Largest solar installation in the region, contributing to 60% of national energy supply."
+        data-stat1="Energy" data-stat1-label="Type"
+        data-stat2="Zone North" data-stat2-label="Location"
+        onclick="selectPoint(this)" tabindex="0" role="button"
+        aria-label="Solar Energy Park — click for details"/>
+      <circle class="infra-dot" id="dot-nature"
+        cx="220" cy="380" r="10"
+        data-type="infra" data-title="Nexora Nature Reserve"
+        data-desc="Protected ecological forest zone. Preserves Nexora's natural biodiversity and serves as a green lung for the capital region."
+        data-stat1="Protected" data-stat1-label="Zone"
+        data-stat2="Zone West" data-stat2-label="Location"
+        onclick="selectPoint(this)" tabindex="0" role="button"
+        aria-label="Nexora Nature Reserve — click for details"/>
+      <circle id="activeRing" class="active-ring" cx="-999" cy="-999" r="18" stroke="#06b6d4" display="none"/>
+      <text x="474" y="222" class="map-label">Nexora City ★</text>
+      <text x="590" y="312" class="map-label">Techno City</text>
+      <text x="366" y="352" class="map-label">Research City</text>
+      <text x="308" y="470" class="map-label-sm">Port</text>
+      <text x="748" y="432" class="map-label-sm">Airport</text>
+      <text x="502" y="482" class="map-label-sm">Space Ctr</text>
+      <text x="522" y="138" class="map-label-sm">Solar Park</text>
+      <text x="230" y="370" class="map-label-sm">Nature Reserve</text>
+      <text x="160" y="165" class="coast-label" transform="rotate(-30 160 165)">North Coast</text>
+      <text x="720" y="165" class="coast-label" transform="rotate(25 720 165)">East Coast</text>
+      <text x="170" y="580" class="coast-label" transform="rotate(15 170 580)">West Bay</text>
+    </svg>
+  </div>
+
+  <aside class="sidebar" aria-label="Map information panel">
+
+    <div class="panel">
+      <div class="panel-header">
+        <div class="panel-header-icon" aria-hidden="true"><i class="fa-solid fa-list"></i></div>
+        <h2>Map Legend</h2>
+      </div>
+      <div class="filter-group mb-3" role="group" aria-label="Filter map elements">
+        <button class="filter-btn active" onclick="filterMap('all',this)" aria-pressed="true">All</button>
+        <button class="filter-btn" onclick="filterMap('city',this)" aria-pressed="false">Cities</button>
+        <button class="filter-btn" onclick="filterMap('infra',this)" aria-pressed="false">Infrastructure</button>
+      </div>
+      <div class="legend-item">
+        <div class="legend-dot" style="background:var(--city);box-shadow:0 0 6px var(--city-glow);"></div>
+        <span>City / Urban Center</span>
+      </div>
+      <div class="legend-item">
+        <div class="legend-dot" style="background:var(--infra);box-shadow:0 0 5px var(--infra-glow);"></div>
+        <span>Infrastructure / Facility</span>
+      </div>
+      <div class="legend-item">
+        <div class="legend-line" style="background:var(--highway);"></div>
+        <span>National Highway</span>
+      </div>
+      <div class="legend-item">
+        <div class="legend-dashed"></div>
+        <span>Metro Rail Line</span>
+      </div>
+      <div class="legend-item">
+        <div class="legend-dot" style="background:rgba(34,197,94,.5);border:1.5px solid rgba(34,197,94,.6);"></div>
+        <span>Nature Reserve</span>
+      </div>
+    </div>
+
+    <div class="panel" id="infoPanel" role="region" aria-label="Location details" aria-live="polite">
+      <div class="panel-header">
+        <div class="panel-header-icon" aria-hidden="true"><i class="fa-solid fa-circle-info"></i></div>
+        <h2>Location Info</h2>
+      </div>
+      <div class="info-placeholder" id="infoPlaceholder">
+        <div class="placeholder-icon"><i class="fa-regular fa-map" aria-hidden="true"></i></div>
+        <p>Click on any city or infrastructure point to learn more about it.</p>
+      </div>
+      <div class="info-content" id="infoContent">
+        <div id="infoTypeBadge" class="info-type-badge"></div>
+        <div class="info-title" id="infoTitle"></div>
+        <p class="info-desc" id="infoDesc"></p>
+        <div class="info-stats">
+          <div class="info-stat">
+            <span class="info-stat-value" id="infoStat1"></span>
+            <span class="info-stat-label" id="infoStat1Label"></span>
+          </div>
+          <div class="info-stat">
+            <span class="info-stat-value" id="infoStat2"></span>
+            <span class="info-stat-label" id="infoStat2Label"></span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="panel">
+      <div class="panel-header">
+        <div class="panel-header-icon" aria-hidden="true"><i class="fa-solid fa-chart-bar"></i></div>
+        <h2>Island Summary</h2>
+      </div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:.5rem;">
+        <div style="background:#f8faff;border:1px solid #e2e8f0;border-radius:8px;padding:.6rem;text-align:center;">
+          <div style="font-size:1.1rem;font-weight:800;color:#1e40af;">3</div>
+          <div style="font-size:.7rem;color:#64748b;font-weight:600;text-transform:uppercase;letter-spacing:.04em;">Smart Cities</div>
+        </div>
+        <div style="background:#f8faff;border:1px solid #e2e8f0;border-radius:8px;padding:.6rem;text-align:center;">
+          <div style="font-size:1.1rem;font-weight:800;color:#1e40af;">5</div>
+          <div style="font-size:.7rem;color:#64748b;font-weight:600;text-transform:uppercase;letter-spacing:.04em;">Infrastructure</div>
+        </div>
+        <div style="background:#f8faff;border:1px solid #e2e8f0;border-radius:8px;padding:.6rem;text-align:center;">
+          <div style="font-size:1.1rem;font-weight:800;color:#1e40af;">2</div>
+          <div style="font-size:.7rem;color:#64748b;font-weight:600;text-transform:uppercase;letter-spacing:.04em;">Metro Lines</div>
+        </div>
+        <div style="background:#f8faff;border:1px solid #e2e8f0;border-radius:8px;padding:.6rem;text-align:center;">
+          <div style="font-size:1.1rem;font-weight:800;color:#1e40af;">3</div>
+          <div style="font-size:.7rem;color:#64748b;font-weight:600;text-transform:uppercase;letter-spacing:.04em;">Highways</div>
+        </div>
+      </div>
+    </div>
+
+  </aside>
+</main>
+
+<script>
+const pointData={};
+document.querySelectorAll('[data-title]').forEach(el=>{
+  pointData[el.id]={
+    type:el.dataset.type,title:el.dataset.title,desc:el.dataset.desc,
+    stat1:el.dataset.stat1,stat1Label:el.dataset['stat1Label'],
+    stat2:el.dataset.stat2,stat2Label:el.dataset['stat2Label'],el
+  };
+});
+let currentId=null;
+function selectPoint(el){
+  const id=el.id,data=pointData[id];
+  if(!data)return;
+  currentId=id;
+  const ring=document.getElementById('activeRing');
+  ring.setAttribute('cx',el.getAttribute('cx'));
+  ring.setAttribute('cy',el.getAttribute('cy'));
+  ring.setAttribute('r',parseFloat(el.getAttribute('r'))+8);
+  ring.setAttribute('display','');
+  ring.setAttribute('stroke',data.type==='city'?'var(--city)':'var(--infra)');
+  document.getElementById('infoPlaceholder').style.display='none';
+  const content=document.getElementById('infoContent');
+  content.style.display='block';
+  const badge=document.getElementById('infoTypeBadge');
+  if(data.type==='city'){
+    badge.className='info-type-badge info-type-city';
+    badge.innerHTML='<i class="fa-solid fa-city"></i> City';
+  }else{
+    badge.className='info-type-badge info-type-infra';
+    badge.innerHTML='<i class="fa-solid fa-industry"></i> Infrastructure';
+  }
+  document.getElementById('infoTitle').textContent=data.title;
+  document.getElementById('infoDesc').textContent=data.desc;
+  document.getElementById('infoStat1').textContent=data.stat1;
+  document.getElementById('infoStat1Label').textContent=data.stat1Label;
+  document.getElementById('infoStat2').textContent=data.stat2;
+  document.getElementById('infoStat2Label').textContent=data.stat2Label;
+}
+const tooltip=document.getElementById('tooltip');
+document.querySelectorAll('[data-title]').forEach(el=>{
+  el.addEventListener('mouseenter',()=>{tooltip.textContent=el.dataset.title;tooltip.classList.add('visible');});
+  el.addEventListener('mousemove',e=>{tooltip.style.left=(e.clientX+14)+'px';tooltip.style.top=(e.clientY-36)+'px';});
+  el.addEventListener('mouseleave',()=>tooltip.classList.remove('visible'));
+  el.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();selectPoint(el);}});
+});
+function filterMap(type,btn){
+  document.querySelectorAll('.filter-btn').forEach(b=>{b.classList.remove('active');b.setAttribute('aria-pressed','false');});
+  btn.classList.add('active');btn.setAttribute('aria-pressed','true');
+  document.querySelectorAll('[data-type]').forEach(el=>{
+    el.style.display=(type==='all'||el.dataset.type===type)?'':'none';
+  });
+  if(currentId&&type!=='all'){
+    const d=pointData[currentId];
+    if(d&&d.type!==type){
+      document.getElementById('infoPlaceholder').style.display='';
+      document.getElementById('infoContent').style.display='none';
+      document.getElementById('activeRing').setAttribute('display','none');
+      currentId=null;
+    }
+  }
+}
+</script>
 </body>
 </html>
