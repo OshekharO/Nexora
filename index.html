@@ -3,644 +3,1723 @@
 <head>
 
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-<title>Nexora Island | Official Government Portal</title>
+<title>Nexora Island | Official Government Portal — Sovereign Innovation Nation</title>
 
-<meta name="description" content="Official portal of Nexora Island — a sovereign innovation nation focused on technology, digital governance, and future economic infrastructure.">
-
-<meta name="keywords" content="Nexora Island, Nexora Government, Nexora Corporation, Nexora Credit NXC, innovation nation, smart island, technology nation">
-
+<meta name="description" content="Nexora Island is a sovereign innovation nation dedicated to advanced technology, digital governance, and global economic leadership. Explore government, visa, charter, and more.">
+<meta name="keywords" content="Nexora Island, Nexora Government, Nexora Corporation, Nexora Credit NXC, innovation nation, smart island, technology nation, digital governance, sovereign state">
 <meta name="author" content="Nexora Government">
-
-<meta name="robots" content="index, follow">
+<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+<meta name="theme-color" content="#0a1628">
 
 <link rel="canonical" href="https://nexora.gov">
 
-<!-- Open Graph (Facebook / LinkedIn) -->
-
-<meta property="og:title" content="Nexora Island Official Portal">
-
-<meta property="og:description" content="Explore Nexora Island — a sovereign innovation nation powered by technology and digital governance.">
-
+<!-- Open Graph -->
+<meta property="og:site_name" content="Nexora Island">
+<meta property="og:title" content="Nexora Island — Official Government Portal">
+<meta property="og:description" content="A sovereign innovation nation powered by advanced technology, digital governance, and future economic infrastructure. Welcome to Nexora Island.">
 <meta property="og:type" content="website">
-
 <meta property="og:url" content="https://nexora.gov">
-
-<meta property="og:image" content="https://nexora.gov/assets/nexora-banner.png">
+<meta property="og:image" content="https://nexora.gov/assets/nexora-og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:locale" content="en_US">
 
 <!-- Twitter Card -->
-
 <meta name="twitter:card" content="summary_large_image">
-
-<meta name="twitter:title" content="Nexora Island Official Portal">
-
-<meta name="twitter:description" content="Official website of Nexora Island government and Nexora Corporation.">
-
-<meta name="twitter:image" content="https://nexora.gov/assets/nexora-banner.png">
+<meta name="twitter:site" content="@NexoraIsland">
+<meta name="twitter:title" content="Nexora Island — Official Government Portal">
+<meta name="twitter:description" content="A sovereign innovation nation powered by advanced technology and digital governance.">
+<meta name="twitter:image" content="https://nexora.gov/assets/nexora-og.png">
 
 <!-- Favicon -->
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%230a1628'/><text x='50%25' y='55%25' dominant-baseline='middle' text-anchor='middle' font-family='system-ui' font-weight='800' font-size='14' fill='%2306b6d4'>NX</text></svg>">
 
-<link rel="icon" href="favicon.ico">
-
-<!-- Structured Data (Government Organization) -->
-
+<!-- Structured Data -->
 <script type="application/ld+json">
-
 {
- "@context": "https://schema.org",
- "@type": "GovernmentOrganization",
- "name": "Nexora Government",
- "url": "https://nexora.gov",
- "logo": "https://nexora.gov/logo.png",
- "foundingDate": "2026",
- "description": "Nexora Island is a sovereign innovation nation focused on technology, digital governance, and economic development.",
- "areaServed": "Nexora Island"
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "GovernmentOrganization",
+      "@id": "https://nexora.gov/#organization",
+      "name": "Nexora Government",
+      "alternateName": "Nexora Island Government",
+      "url": "https://nexora.gov",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://nexora.gov/logo.png",
+        "width": 200,
+        "height": 200
+      },
+      "foundingDate": "2026",
+      "description": "Nexora Island is a sovereign innovation nation focused on technology, digital governance, and economic development.",
+      "areaServed": {
+        "@type": "Place",
+        "name": "Nexora Island"
+      },
+      "sameAs": []
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://nexora.gov/#website",
+      "url": "https://nexora.gov",
+      "name": "Nexora Island Official Portal",
+      "description": "Official government portal of Nexora Island — a sovereign innovation nation.",
+      "publisher": { "@id": "https://nexora.gov/#organization" },
+      "inLanguage": "en-US"
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://nexora.gov/#webpage",
+      "url": "https://nexora.gov",
+      "name": "Nexora Island | Official Government Portal",
+      "isPartOf": { "@id": "https://nexora.gov/#website" },
+      "about": { "@id": "https://nexora.gov/#organization" },
+      "description": "The official government portal of Nexora Island.",
+      "inLanguage": "en-US"
+    }
+  ]
 }
-
 </script>
 
+<!-- Bootstrap 5 -->
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<!-- Font Awesome -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<!-- AOS Animations -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css">
 
 <style>
-
-:root{
---primary:#1f3fb3;
---dark:#0b1d47;
---light:#f5f7ff;
+/* ============================================================
+   CSS Custom Properties
+   ============================================================ */
+:root {
+  --primary:      #1e40af;
+  --primary-dark: #1e3a8a;
+  --primary-light:#3b82f6;
+  --accent:       #06b6d4;
+  --accent-light: #67e8f9;
+  --dark:         #0a1628;
+  --dark-mid:     #0f2040;
+  --light:        #f0f4ff;
+  --lighter:      #ffffff;
+  --text:         #1e293b;
+  --text-muted:   #64748b;
+  --gradient-hero: linear-gradient(135deg, #0a1628 0%, #0f2a6e 50%, #1e40af 100%);
+  --gradient-accent: linear-gradient(135deg, #06b6d4, #3b82f6);
+  --shadow-sm:    0 2px 8px rgba(0,0,0,.06);
+  --shadow-md:    0 8px 30px rgba(0,0,0,.10);
+  --shadow-lg:    0 20px 60px rgba(0,0,0,.15);
+  --radius:       16px;
+  --radius-lg:    24px;
+  --transition:   .35s cubic-bezier(.4,0,.2,1);
 }
 
-body{
-font-family:system-ui,Segoe UI;
-background:var(--light);
+/* ============================================================
+   Base
+   ============================================================ */
+*, *::before, *::after { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+  background: var(--light);
+  color: var(--text);
+  overflow-x: hidden;
+  line-height: 1.7;
 }
 
-.section{
-padding:90px 0;
+img { max-width: 100%; height: auto; }
+
+/* ============================================================
+   Utility
+   ============================================================ */
+.section { padding: 96px 0; }
+.section-sm { padding: 64px 0; }
+
+.section-label {
+  display: inline-block;
+  font-size: .75rem;
+  font-weight: 700;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: .5rem;
 }
 
-.section-title{
-font-weight:700;
-margin-bottom:25px;
+.section-title {
+  font-size: clamp(1.75rem, 4vw, 2.5rem);
+  font-weight: 800;
+  line-height: 1.2;
+  color: var(--dark);
+  margin-bottom: 1rem;
 }
 
-.hero{
-min-height:90vh;
-background:linear-gradient(120deg,#0b1d47,#1f3fb3);
-color:white;
-display:flex;
-align-items:center;
-text-align:center;
+.section-title.light { color: #fff; }
+
+.section-subtitle {
+  font-size: 1.05rem;
+  color: var(--text-muted);
+  max-width: 600px;
+  margin: 0 auto;
 }
 
-.hero h1{
-font-size:60px;
-font-weight:800;
+.section-subtitle.light { color: rgba(255,255,255,.75); }
+
+.gradient-text {
+  background: var(--gradient-accent);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
-.card-modern{
-background:white;
-border:none;
-border-radius:14px;
-padding:30px;
-box-shadow:0 10px 25px rgba(0,0,0,.08);
+.btn-nexora {
+  background: var(--gradient-accent);
+  color: #fff;
+  border: none;
+  border-radius: 50px;
+  padding: .75rem 2rem;
+  font-weight: 600;
+  font-size: .95rem;
+  letter-spacing: .02em;
+  transition: var(--transition);
+  box-shadow: 0 4px 20px rgba(6,182,212,.35);
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: .5rem;
 }
 
-.flag{
-width:260px;
-height:160px;
-background:linear-gradient(90deg,#1f3fb3 33%,white 33%,white 66%,#1f3fb3 66%);
-border:3px solid #111;
-margin:auto;
-position:relative;
+.btn-nexora:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 30px rgba(6,182,212,.5);
+  color: #fff;
 }
 
-.flag-symbol{
-position:absolute;
-top:50%;
-left:50%;
-transform:translate(-50%,-50%);
-font-weight:800;
-font-size:26px;
-color:#1f3fb3;
+.btn-outline-nexora {
+  background: transparent;
+  color: #fff;
+  border: 2px solid rgba(255,255,255,.5);
+  border-radius: 50px;
+  padding: .75rem 2rem;
+  font-weight: 600;
+  font-size: .95rem;
+  transition: var(--transition);
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: .5rem;
 }
 
-footer{
-background:#0b1d47;
-color:white;
-padding:35px;
-text-align:center;
+.btn-outline-nexora:hover {
+  background: rgba(255,255,255,.15);
+  border-color: #fff;
+  color: #fff;
+  transform: translateY(-2px);
 }
 
+/* ============================================================
+   Navbar
+   ============================================================ */
+.navbar {
+  padding: 1rem 0;
+  transition: background var(--transition), box-shadow var(--transition), padding var(--transition);
+  background: transparent;
+}
+
+.navbar.scrolled {
+  background: rgba(10,22,40,.97) !important;
+  box-shadow: 0 4px 30px rgba(0,0,0,.3);
+  padding: .6rem 0;
+  backdrop-filter: blur(12px);
+}
+
+.navbar-brand {
+  font-size: 1.5rem;
+  font-weight: 900;
+  letter-spacing: .05em;
+  color: #fff !important;
+  display: flex;
+  align-items: center;
+  gap: .5rem;
+}
+
+.navbar-brand .brand-icon {
+  width: 36px;
+  height: 36px;
+  background: var(--gradient-accent);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: .8rem;
+  font-weight: 900;
+  color: #fff;
+  letter-spacing: 0;
+}
+
+.nav-link {
+  color: rgba(255,255,255,.85) !important;
+  font-weight: 500;
+  font-size: .9rem;
+  padding: .4rem .8rem !important;
+  border-radius: 6px;
+  transition: var(--transition);
+  letter-spacing: .01em;
+}
+
+.nav-link:hover,
+.nav-link.active {
+  color: var(--accent-light) !important;
+  background: rgba(6,182,212,.1);
+}
+
+.navbar-toggler {
+  border: 1px solid rgba(255,255,255,.3);
+  padding: .3rem .6rem;
+}
+
+.navbar-toggler-icon {
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28255,255,255,0.85%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+}
+
+/* ============================================================
+   Hero
+   ============================================================ */
+.hero {
+  position: relative;
+  min-height: 100vh;
+  background: var(--gradient-hero);
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+}
+
+.hero-particles {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.hero-particle {
+  position: absolute;
+  border-radius: 50%;
+  animation: float-up linear infinite;
+  opacity: 0;
+}
+
+@keyframes float-up {
+  0%   { transform: translateY(100vh) scale(0); opacity: 0; }
+  10%  { opacity: .6; }
+  90%  { opacity: .3; }
+  100% { transform: translateY(-20vh) scale(1); opacity: 0; }
+}
+
+.hero-grid {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(6,182,212,.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(6,182,212,.06) 1px, transparent 1px);
+  background-size: 60px 60px;
+  mask-image: radial-gradient(ellipse at center, black 30%, transparent 80%);
+}
+
+.hero-glow {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  pointer-events: none;
+}
+
+.hero-glow-1 {
+  width: 600px;
+  height: 600px;
+  background: rgba(30,64,175,.4);
+  top: -150px;
+  right: -100px;
+}
+
+.hero-glow-2 {
+  width: 400px;
+  height: 400px;
+  background: rgba(6,182,212,.25);
+  bottom: -100px;
+  left: -50px;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+}
+
+.hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: .5rem;
+  background: rgba(6,182,212,.15);
+  border: 1px solid rgba(6,182,212,.4);
+  border-radius: 50px;
+  padding: .4rem 1rem;
+  font-size: .8rem;
+  font-weight: 600;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: var(--accent-light);
+  margin-bottom: 1.5rem;
+}
+
+.hero-badge .dot {
+  width: 7px;
+  height: 7px;
+  background: var(--accent);
+  border-radius: 50%;
+  animation: pulse-dot 2s infinite;
+}
+
+@keyframes pulse-dot {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50%       { opacity: .5; transform: scale(1.4); }
+}
+
+.hero h1 {
+  font-size: clamp(2.5rem, 7vw, 5.5rem);
+  font-weight: 900;
+  line-height: 1.05;
+  color: #fff;
+  letter-spacing: -.02em;
+  margin-bottom: 1.25rem;
+}
+
+.hero .lead {
+  font-size: clamp(1rem, 2vw, 1.25rem);
+  color: rgba(255,255,255,.8);
+  max-width: 600px;
+  margin: 0 auto 2.5rem;
+}
+
+.hero-buttons {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.hero-scroll {
+  position: absolute;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  color: rgba(255,255,255,.5);
+  font-size: .8rem;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: .5rem;
+  animation: bounce-down 2s infinite;
+  z-index: 2;
+}
+
+@keyframes bounce-down {
+  0%, 100% { transform: translateX(-50%) translateY(0); }
+  50%       { transform: translateX(-50%) translateY(6px); }
+}
+
+/* ============================================================
+   Stats Bar
+   ============================================================ */
+.stats-bar {
+  background: var(--dark-mid);
+  padding: 2.5rem 0;
+  border-top: 1px solid rgba(6,182,212,.2);
+  border-bottom: 1px solid rgba(6,182,212,.2);
+}
+
+.stat-item {
+  text-align: center;
+  padding: .5rem;
+}
+
+.stat-number {
+  font-size: 2.2rem;
+  font-weight: 900;
+  color: var(--accent);
+  line-height: 1;
+  display: block;
+}
+
+.stat-label {
+  font-size: .8rem;
+  font-weight: 600;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,.55);
+  margin-top: .3rem;
+  display: block;
+}
+
+.stat-divider {
+  width: 1px;
+  background: rgba(255,255,255,.1);
+  align-self: stretch;
+}
+
+/* ============================================================
+   About
+   ============================================================ */
+.about-card {
+  background: #fff;
+  border-radius: var(--radius-lg);
+  padding: 2.5rem;
+  box-shadow: var(--shadow-md);
+  height: 100%;
+  transition: transform var(--transition), box-shadow var(--transition);
+  border: 1px solid rgba(30,64,175,.08);
+}
+
+.about-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+}
+
+.about-icon {
+  width: 56px;
+  height: 56px;
+  border-radius: 14px;
+  background: linear-gradient(135deg, rgba(30,64,175,.1), rgba(6,182,212,.1));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.25rem;
+  font-size: 1.4rem;
+  color: var(--primary);
+}
+
+/* ============================================================
+   Flag & Emblem
+   ============================================================ */
+.flag-container {
+  display: inline-block;
+}
+
+.nexora-flag {
+  width: 280px;
+  height: 175px;
+  border-radius: 6px;
+  overflow: hidden;
+  box-shadow: var(--shadow-lg);
+  border: 3px solid rgba(0,0,0,.12);
+  position: relative;
+  margin: 0 auto;
+  display: block;
+}
+
+.nexora-flag-inner {
+  display: flex;
+  height: 100%;
+}
+
+.flag-stripe {
+  flex: 1;
+  background: #1e40af;
+}
+
+.flag-center {
+  flex: 1;
+  background: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.flag-monogram {
+  font-size: 2rem;
+  font-weight: 900;
+  color: #1e40af;
+  letter-spacing: -.05em;
+}
+
+.nexora-emblem {
+  width: 175px;
+  height: 175px;
+  border-radius: 50%;
+  border: 6px solid var(--primary);
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, rgba(30,64,175,.08), rgba(6,182,212,.08));
+  box-shadow: 0 0 0 3px rgba(30,64,175,.15), var(--shadow-lg);
+  position: relative;
+}
+
+.nexora-emblem-text {
+  font-size: 2.5rem;
+  font-weight: 900;
+  color: var(--primary);
+  letter-spacing: -.05em;
+}
+
+/* ============================================================
+   Government Cards
+   ============================================================ */
+.gov-card {
+  background: #fff;
+  border-radius: var(--radius);
+  padding: 2rem;
+  box-shadow: var(--shadow-sm);
+  border: 1px solid rgba(30,64,175,.08);
+  height: 100%;
+  transition: transform var(--transition), box-shadow var(--transition);
+  position: relative;
+  overflow: hidden;
+}
+
+.gov-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: var(--gradient-accent);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform var(--transition);
+}
+
+.gov-card:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-md);
+}
+
+.gov-card:hover::before {
+  transform: scaleX(1);
+}
+
+.gov-card-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 10px;
+  background: linear-gradient(135deg, var(--primary-light), var(--accent));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-size: 1.1rem;
+  margin-bottom: 1rem;
+  box-shadow: 0 4px 12px rgba(6,182,212,.3);
+}
+
+.gov-card h5,
+.gov-card h6 {
+  font-weight: 700;
+  color: var(--dark);
+  margin-bottom: .6rem;
+}
+
+.gov-card p {
+  color: var(--text-muted);
+  font-size: .9rem;
+  margin: 0;
+}
+
+/* ============================================================
+   Map CTA
+   ============================================================ */
+.map-cta {
+  background: var(--gradient-hero);
+  position: relative;
+  overflow: hidden;
+}
+
+.map-cta::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(6,182,212,.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(6,182,212,.05) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+
+.map-preview {
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-lg);
+  border: 1px solid rgba(6,182,212,.3);
+}
+
+/* ============================================================
+   Visa Section
+   ============================================================ */
+.visa-step {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  padding: 1.25rem;
+  background: rgba(30,64,175,.04);
+  border-radius: 12px;
+  border: 1px solid rgba(30,64,175,.08);
+  margin-bottom: .75rem;
+  transition: background var(--transition);
+}
+
+.visa-step:hover {
+  background: rgba(30,64,175,.08);
+}
+
+.visa-step-num {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: var(--gradient-accent);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 800;
+  font-size: .85rem;
+  flex-shrink: 0;
+}
+
+.visa-step-text strong {
+  display: block;
+  font-weight: 700;
+  color: var(--dark);
+  font-size: .9rem;
+}
+
+.visa-step-text span {
+  font-size: .83rem;
+  color: var(--text-muted);
+}
+
+.visa-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: .4rem;
+  background: rgba(34,197,94,.1);
+  border: 1px solid rgba(34,197,94,.3);
+  color: #16a34a;
+  border-radius: 50px;
+  padding: .3rem .9rem;
+  font-size: .8rem;
+  font-weight: 700;
+}
+
+/* ============================================================
+   Charter Section
+   ============================================================ */
+.charter-card {
+  background: #fff;
+  border-radius: var(--radius-lg);
+  padding: 3rem;
+  box-shadow: var(--shadow-lg);
+  border: 1px solid rgba(30,64,175,.1);
+  max-width: 700px;
+  margin: 0 auto;
+  position: relative;
+  overflow: hidden;
+}
+
+.charter-card::after {
+  content: '';
+  position: absolute;
+  top: -50px;
+  right: -50px;
+  width: 200px;
+  height: 200px;
+  background: radial-gradient(circle, rgba(6,182,212,.08), transparent 70%);
+  pointer-events: none;
+}
+
+.charter-icon {
+  width: 80px;
+  height: 80px;
+  border-radius: var(--radius);
+  background: linear-gradient(135deg, var(--primary-light), var(--accent));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  color: #fff;
+  margin: 0 auto 1.5rem;
+  box-shadow: 0 8px 24px rgba(6,182,212,.35);
+}
+
+/* ============================================================
+   Investors
+   ============================================================ */
+.investor-card {
+  background: #fff;
+  border-radius: var(--radius);
+  padding: 2rem 1.5rem;
+  box-shadow: var(--shadow-sm);
+  border: 1px solid rgba(30,64,175,.08);
+  text-align: center;
+  transition: transform var(--transition), box-shadow var(--transition);
+  height: 100%;
+}
+
+.investor-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-md);
+}
+
+.investor-avatar {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  background: var(--gradient-accent);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  font-weight: 900;
+  color: #fff;
+  margin: 0 auto 1rem;
+  box-shadow: 0 4px 16px rgba(6,182,212,.35);
+}
+
+.investor-card h5 {
+  font-weight: 700;
+  font-size: 1rem;
+  color: var(--dark);
+  margin-bottom: .3rem;
+}
+
+.investor-role {
+  font-size: .8rem;
+  font-weight: 600;
+  letter-spacing: .05em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+/* ============================================================
+   Footer
+   ============================================================ */
+.footer {
+  background: var(--dark);
+  color: rgba(255,255,255,.75);
+  padding: 4rem 0 0;
+  border-top: 1px solid rgba(6,182,212,.15);
+}
+
+.footer-brand {
+  font-size: 1.4rem;
+  font-weight: 900;
+  color: #fff;
+  margin-bottom: .75rem;
+}
+
+.footer-tagline {
+  font-size: .88rem;
+  color: rgba(255,255,255,.5);
+  margin-bottom: 1.5rem;
+}
+
+.footer-heading {
+  font-size: .8rem;
+  font-weight: 700;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 1rem;
+}
+
+.footer-links {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-links li {
+  margin-bottom: .5rem;
+}
+
+.footer-links a {
+  color: rgba(255,255,255,.6);
+  text-decoration: none;
+  font-size: .88rem;
+  transition: color var(--transition);
+}
+
+.footer-links a:hover {
+  color: var(--accent-light);
+}
+
+.footer-bottom {
+  border-top: 1px solid rgba(255,255,255,.08);
+  margin-top: 3rem;
+  padding: 1.5rem 0;
+  font-size: .83rem;
+  color: rgba(255,255,255,.4);
+}
+
+/* ============================================================
+   Scroll to Top
+   ============================================================ */
+#scrollTop {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  width: 46px;
+  height: 46px;
+  background: var(--gradient-accent);
+  color: #fff;
+  border: none;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+  box-shadow: 0 4px 20px rgba(6,182,212,.45);
+  cursor: pointer;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity var(--transition), transform var(--transition);
+  z-index: 9999;
+}
+
+#scrollTop.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+#scrollTop:hover {
+  box-shadow: 0 8px 30px rgba(6,182,212,.6);
+  transform: translateY(-3px);
+}
+
+/* ============================================================
+   Background alternating sections
+   ============================================================ */
+.bg-section-alt { background: #f8faff; }
+.bg-section-dark {
+  background: var(--dark-mid);
+  color: #fff;
+}
+
+/* ============================================================
+   Responsive Tweaks
+   ============================================================ */
+@media (max-width: 768px) {
+  .section { padding: 64px 0; }
+  .hero h1 { font-size: 2.5rem; }
+  .stat-divider { display: none; }
+  .stats-bar .row { gap: 1rem; }
+  .charter-card { padding: 2rem 1.25rem; }
+}
+
+@media (max-width: 576px) {
+  .hero-buttons { flex-direction: column; align-items: center; }
+  .nexora-flag { width: 220px; height: 137px; }
+}
 </style>
 
 </head>
 
 <body>
 
-<!-- NAVBAR -->
-
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
-
-<div class="container">
-
-<a class="navbar-brand fw-bold">NEXORA</a>
-
-<button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#nav">
-<span class="navbar-toggler-icon"></span>
+<!-- ============================================================
+     SCROLL TO TOP
+     ============================================================ -->
+<button id="scrollTop" aria-label="Scroll to top">
+  <i class="fa-solid fa-arrow-up"></i>
 </button>
 
-<div class="collapse navbar-collapse" id="nav">
+<!-- ============================================================
+     NAVBAR
+     ============================================================ -->
+<header>
+  <nav class="navbar navbar-expand-lg fixed-top" id="mainNav" aria-label="Main navigation">
+    <div class="container">
 
-<ul class="navbar-nav ms-auto">
+      <a class="navbar-brand" href="#" aria-label="Nexora Island Home">
+        <span class="brand-icon" aria-hidden="true">NX</span>
+        NEXORA
+      </a>
 
-<li class="nav-item"><a class="nav-link" href="#about">About</a></li>
-<li class="nav-item"><a class="nav-link" href="#government">Government</a></li>
-<li class="nav-item"><a class="nav-link" href="#map">Island Map</a></li>
-<li class="nav-item"><a class="nav-link" href="#visa">Visa</a></li>
-<li class="nav-item"><a class="nav-link" href="#charter">Charter</a></li>
-<li class="nav-item"><a class="nav-link" href="#investors">Investors</a></li>
+      <button class="navbar-toggler" type="button"
+        data-bs-toggle="collapse" data-bs-target="#navMenu"
+        aria-controls="navMenu" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
 
-</ul>
+      <div class="collapse navbar-collapse" id="navMenu">
+        <ul class="navbar-nav ms-auto gap-1">
+          <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+          <li class="nav-item"><a class="nav-link" href="#government">Government</a></li>
+          <li class="nav-item"><a class="nav-link" href="#map">Island Map</a></li>
+          <li class="nav-item"><a class="nav-link" href="#visa">Visa</a></li>
+          <li class="nav-item"><a class="nav-link" href="#charter">Charter</a></li>
+          <li class="nav-item"><a class="nav-link" href="#investors">Investors</a></li>
+        </ul>
+      </div>
 
-</div>
+    </div>
+  </nav>
+</header>
 
-</div>
+<!-- ============================================================
+     HERO
+     ============================================================ -->
+<section class="hero" id="home" aria-label="Hero">
 
-</nav>
+  <div class="hero-particles" aria-hidden="true" id="heroParticles"></div>
+  <div class="hero-grid" aria-hidden="true"></div>
+  <div class="hero-glow hero-glow-1" aria-hidden="true"></div>
+  <div class="hero-glow hero-glow-2" aria-hidden="true"></div>
 
-<!-- HERO -->
+  <div class="container hero-content text-center">
 
-<section class="hero">
+    <div class="hero-badge" data-aos="fade-down" data-aos-delay="100">
+      <span class="dot"></span>
+      Sovereign Innovation Nation — Est. 2026
+    </div>
 
-<div class="container">
+    <h1 data-aos="fade-up" data-aos-delay="200">
+      Welcome to<br>
+      <span class="gradient-text">Nexora Island</span>
+    </h1>
 
-<h1>Nexora Island</h1>
+    <p class="lead" data-aos="fade-up" data-aos-delay="300">
+      A global center for advanced technology, digital governance,
+      and future economic infrastructure — where innovation meets sovereignty.
+    </p>
 
-<p class="lead mt-3">
-A Sovereign Innovation Nation
-</p>
+    <div class="hero-buttons" data-aos="fade-up" data-aos-delay="400">
+      <a href="#about" class="btn-nexora">
+        <i class="fa-solid fa-compass" aria-hidden="true"></i>
+        Explore Nexora
+      </a>
+      <a href="map.html" class="btn-outline-nexora">
+        <i class="fa-solid fa-map" aria-hidden="true"></i>
+        Island Map
+      </a>
+    </div>
 
-<p class="mt-3">
+  </div>
 
-A global center for advanced technology, digital governance,
-and future economic infrastructure.
-
-</p>
-
-</div>
-
-</section>
-
-<!-- ABOUT -->
-
-<section id="about" class="section">
-
-<div class="container text-center">
-
-<h2 class="section-title">About Nexora Island</h2>
-
-<p>
-
-Nexora Island is a sovereign innovation ecosystem dedicated to
-technological progress, digital governance, and global collaboration.
-
-The island operates under the Nexora Government and is supported
-by Nexora Corporation, responsible for infrastructure development,
-technology innovation, and economic growth.
-
-</p>
-
-</div>
-
-</section>
-
-<!-- GOVERNMENT -->
-
-<section id="government" class="section bg-white">
-
-<div class="container text-center">
-
-<h2 class="section-title">Nexora Government</h2>
-
-<div class="row mt-5">
-
-<div class="col-md-6">
-
-<h5>National Flag</h5>
-
-<div class="flag mt-3">
-<div class="flag-symbol">NX</div>
-</div>
-
-</div>
-
-<div class="col-md-6 mt-4">
-
-<h5>Government Emblem</h5>
-
-<div style="width:160px;height:160px;border:6px solid #1f3fb3;border-radius:50%;margin:auto;display:flex;align-items:center;justify-content:center;font-size:36px;font-weight:700;color:#1f3fb3;">
-NX
-</div>
-
-</div>
-
-</div>
-
-</div>
+  <div class="hero-scroll" aria-hidden="true">
+    <span>Scroll</span>
+    <i class="fa-solid fa-chevron-down"></i>
+  </div>
 
 </section>
 
-<section id="structure" class="section">
-
-<div class="container">
-
-<div class="text-center mb-5">
-
-<h2 class="section-title">Government Structure</h2>
-
-<p>
-
-The Government of Nexora Island operates through a modern
-administrative framework designed to support technological
-innovation, economic development, and national governance.
-
-</p>
-
-</div>
-
-<!-- Executive Leadership -->
-
-<div class="row mb-5">
-
-<div class="col-md-6">
-
-<div class="card-modern">
-
-<h5>President of Nexora</h5>
-
-<p>
-
-Head of state and chief executive responsible for national leadership,
-international relations, and strategic direction of Nexora Island.
-
-</p>
-
-</div>
-
-</div>
-
-<div class="col-md-6 mt-2">
-
-<div class="card-modern">
-
-<h5>Nexora Parliament</h5>
-
-<p>
-
-The legislative body responsible for passing national laws,
-economic policies, and technological regulations.
-
-</p>
-
-</div>
-
-</div>
-
-</div>
-
-
-<!-- Ministries -->
-
-<div class="row">
-
-<div class="col-md-4">
-
-<div class="card-modern">
-
-<h6>Ministry of Technology</h6>
-
-<p>
-
-Oversees digital infrastructure, artificial intelligence development,
-cybersecurity, and national technology initiatives.
-
-</p>
-
-</div>
-
-</div>
-
-<div class="col-md-4 mt-2">
-
-<div class="card-modern">
-
-<h6>Ministry of Finance</h6>
-
-<p>
-
-Responsible for national economic policy, fiscal management,
-and regulation of the Nexora Credit (NXC) currency.
-
-</p>
-
-</div>
-
-</div>
-
-<div class="col-md-4 mt-2">
-
-<div class="card-modern">
-
-<h6>Ministry of Infrastructure</h6>
-
-<p>
-
-Manages transportation systems, ports, airports,
-energy infrastructure, and smart-city planning.
-
-</p>
-
-</div>
-
-</div>
-
-</div>
-
-
-<!-- National Institutions -->
-
-<div class="row mt-4">
-
-<div class="col-md-4">
-
-<div class="card-modern">
-
-<h6>Nexora Central Bank</h6>
-
-<p>
-
-Supervises the Nexora Credit (NXC) currency and national
-financial stability.
-
-</p>
-
-</div>
-
-</div>
-
-<div class="col-md-4 mt-2">
-
-<div class="card-modern">
-
-<h6>Nexora Immigration Authority</h6>
-
-<p>
-
-Manages border control, visas, and entry regulations
-for international visitors.
-
-</p>
-
-</div>
-
-</div>
-
-<div class="col-md-4 mt-2">
-
-<div class="card-modern">
-
-<h6>Nexora Space & Research Agency</h6>
-
-<p>
-
-Leads aerospace research, satellite programs,
-and advanced scientific exploration.
-
-</p>
-
-</div>
-
-</div>
-
-</div>
-
-</div>
-
+<!-- ============================================================
+     STATS BAR
+     ============================================================ -->
+<section class="stats-bar" aria-label="Key statistics">
+  <div class="container">
+    <div class="row align-items-center justify-content-center g-4">
+
+      <div class="col-6 col-md-3">
+        <div class="stat-item">
+          <span class="stat-number" data-count="2026">—</span>
+          <span class="stat-label">Founded</span>
+        </div>
+      </div>
+
+      <div class="col-auto d-none d-md-block stat-divider"></div>
+
+      <div class="col-6 col-md-3">
+        <div class="stat-item">
+          <span class="stat-number" data-count="3">—</span>
+          <span class="stat-label">Smart Cities</span>
+        </div>
+      </div>
+
+      <div class="col-auto d-none d-md-block stat-divider"></div>
+
+      <div class="col-6 col-md-3">
+        <div class="stat-item">
+          <span class="stat-number" data-count="6">—</span>
+          <span class="stat-label">Ministries</span>
+        </div>
+      </div>
+
+      <div class="col-auto d-none d-md-block stat-divider"></div>
+
+      <div class="col-6 col-md-3">
+        <div class="stat-item">
+          <span class="stat-number" data-count="4">—</span>
+          <span class="stat-label">Core Investors</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
 </section>
 
-<!-- ISLAND MAP -->
+<!-- ============================================================
+     ABOUT
+     ============================================================ -->
+<section id="about" class="section" aria-labelledby="about-heading">
+  <div class="container">
 
-<section id="map" class="section">
+    <div class="text-center mb-5" data-aos="fade-up">
+      <span class="section-label">Our Nation</span>
+      <h2 class="section-title" id="about-heading">About Nexora Island</h2>
+      <p class="section-subtitle">
+        A sovereign ecosystem dedicated to technological progress,
+        digital governance, and global collaboration.
+      </p>
+    </div>
 
-<div class="container text-center">
+    <div class="row g-4">
 
-<h2 class="section-title">Explore Nexora Island</h2>
+      <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
+        <div class="about-card">
+          <div class="about-icon">
+            <i class="fa-solid fa-microchip" aria-hidden="true"></i>
+          </div>
+          <h3 style="font-size:1.1rem;font-weight:700;margin-bottom:.6rem;">Technology First</h3>
+          <p style="color:var(--text-muted);font-size:.9rem;margin:0;">
+            Nexora Island is built on a foundation of advanced technology — from
+            AI-driven governance to cutting-edge digital infrastructure and
+            smart-city systems that power everyday life.
+          </p>
+        </div>
+      </div>
 
-<p>
+      <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
+        <div class="about-card">
+          <div class="about-icon">
+            <i class="fa-solid fa-landmark" aria-hidden="true"></i>
+          </div>
+          <h3 style="font-size:1.1rem;font-weight:700;margin-bottom:.6rem;">Digital Governance</h3>
+          <p style="color:var(--text-muted);font-size:.9rem;margin:0;">
+            The island operates under the Nexora Government with a modern
+            administrative framework. All public services are digitized and
+            accessible to every resident and visitor.
+          </p>
+        </div>
+      </div>
 
-Discover Nexora's cities, technology districts,
-transport infrastructure and national facilities
-through the interactive island map.
+      <div class="col-md-4" data-aos="fade-up" data-aos-delay="300">
+        <div class="about-card">
+          <div class="about-icon">
+            <i class="fa-solid fa-globe" aria-hidden="true"></i>
+          </div>
+          <h3 style="font-size:1.1rem;font-weight:700;margin-bottom:.6rem;">Global Collaboration</h3>
+          <p style="color:var(--text-muted);font-size:.9rem;margin:0;">
+            Nexora Corporation leads international partnerships, drives
+            economic growth, and builds bridges with the global tech
+            community to ensure Nexora's place in the world.
+          </p>
+        </div>
+      </div>
 
-</p>
+    </div>
 
-<a href="map.html" class="btn btn-primary btn-lg mt-3">
-
-Open Interactive Island Map
-
-</a>
-
-</div>
-
+  </div>
 </section>
 
-<!-- VISA -->
+<!-- ============================================================
+     GOVERNMENT — FLAG & EMBLEM
+     ============================================================ -->
+<section id="government" class="section bg-section-alt" aria-labelledby="government-heading">
+  <div class="container">
 
-<section id="visa" class="section bg-white">
+    <div class="text-center mb-5" data-aos="fade-up">
+      <span class="section-label">National Identity</span>
+      <h2 class="section-title" id="government-heading">Nexora Government</h2>
+      <p class="section-subtitle">
+        The symbols and institutions that represent Nexora Island to the world.
+      </p>
+    </div>
 
-<div class="container">
+    <div class="row align-items-center justify-content-center g-5">
 
-<div class="text-center mb-5">
+      <div class="col-md-5 text-center" data-aos="fade-right">
+        <h5 style="font-weight:700;margin-bottom:1.25rem;color:var(--dark);">
+          <i class="fa-solid fa-flag me-2" style="color:var(--primary);" aria-hidden="true"></i>
+          National Flag
+        </h5>
+        <div class="nexora-flag" role="img" aria-label="Nexora Island National Flag">
+          <div class="nexora-flag-inner">
+            <div class="flag-stripe"></div>
+            <div class="flag-center">
+              <span class="flag-monogram">NX</span>
+            </div>
+            <div class="flag-stripe"></div>
+          </div>
+        </div>
+        <p style="margin-top:1rem;font-size:.85rem;color:var(--text-muted);">
+          The triband flag features the Nexora blue symbolizing
+          innovation, framing the national monogram on white.
+        </p>
+      </div>
 
-<h2 class="section-title">Visa on Arrival</h2>
+      <div class="col-md-5 text-center" data-aos="fade-left">
+        <h5 style="font-weight:700;margin-bottom:1.25rem;color:var(--dark);">
+          <i class="fa-solid fa-shield-halved me-2" style="color:var(--primary);" aria-hidden="true"></i>
+          Government Emblem
+        </h5>
+        <div class="nexora-emblem" role="img" aria-label="Nexora Government Emblem">
+          <span class="nexora-emblem-text">NX</span>
+        </div>
+        <p style="margin-top:1rem;font-size:.85rem;color:var(--text-muted);">
+          The circular emblem represents the unity and completeness
+          of Nexora's sovereign governance.
+        </p>
+      </div>
 
-<p>International visitors may enter Nexora Island through the Visa on Arrival program.</p>
+    </div>
 
-</div>
-
-<div class="row">
-
-<div class="col-md-4">
-
-<div class="card-modern">
-
-<h5>Eligibility</h5>
-
-<p>
-
-Citizens of most countries may apply for a Visa on Arrival when entering Nexora Island through
-Nexora International Airport or Nexora International Port.
-
-</p>
-
-</div>
-
-</div>
-
-<div class="col-md-4 mt-3">
-
-<div class="card-modern">
-
-<h5>Requirements</h5>
-
-<ul>
-
-<li>Valid passport</li>
-<li>Return or onward ticket</li>
-<li>Accommodation confirmation</li>
-<li>Visa processing fee</li>
-
-</ul>
-
-</div>
-
-</div>
-
-<div class="col-md-4 mt-3">
-
-<div class="card-modern">
-
-<h5>Visa Duration</h5>
-
-<p>
-
-The standard Visa on Arrival allows visitors to remain in Nexora Island
-for up to <b>30 days</b> with optional extensions through the Nexora Immigration Office.
-
-</p>
-
-</div>
-
-</div>
-
-</div>
-
-</div>
-
+  </div>
 </section>
 
-<!-- CHARTER -->
+<!-- ============================================================
+     GOVERNMENT STRUCTURE
+     ============================================================ -->
+<section id="structure" class="section" aria-labelledby="structure-heading">
+  <div class="container">
 
-<section id="charter" class="section">
+    <div class="text-center mb-5" data-aos="fade-up">
+      <span class="section-label">How We Govern</span>
+      <h2 class="section-title" id="structure-heading">Government Structure</h2>
+      <p class="section-subtitle">
+        A modern administrative framework designed to support technological
+        innovation, economic development, and national governance.
+      </p>
+    </div>
 
-<div class="container text-center">
+    <!-- Executive Leadership -->
+    <div class="row g-4 mb-4">
 
-<h2 class="section-title">Nexora Corporation Charter</h2>
+      <div class="col-md-6" data-aos="fade-up" data-aos-delay="100">
+        <div class="gov-card">
+          <div class="gov-card-icon">
+            <i class="fa-solid fa-user-tie" aria-hidden="true"></i>
+          </div>
+          <h5>President of Nexora</h5>
+          <p>Head of state and chief executive responsible for national leadership,
+             international relations, and the strategic direction of Nexora Island.</p>
+        </div>
+      </div>
 
-<p>
+      <div class="col-md-6" data-aos="fade-up" data-aos-delay="200">
+        <div class="gov-card">
+          <div class="gov-card-icon">
+            <i class="fa-solid fa-scale-balanced" aria-hidden="true"></i>
+          </div>
+          <h5>Nexora Parliament</h5>
+          <p>The legislative body responsible for passing national laws,
+             economic policies, and technological regulations that shape
+             the future of Nexora Island.</p>
+        </div>
+      </div>
 
-The Nexora Corporation Charter is the official founding document
-establishing the governance structure and operational mandate
-of Nexora Corporation.
+    </div>
 
-</p>
+    <!-- Ministries -->
+    <div class="row g-4 mb-4">
 
-<a href="nexora_corporate_charter.pdf"
-class="btn btn-primary"
-target="_blank">
+      <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
+        <div class="gov-card">
+          <div class="gov-card-icon">
+            <i class="fa-solid fa-microchip" aria-hidden="true"></i>
+          </div>
+          <h6>Ministry of Technology</h6>
+          <p>Oversees digital infrastructure, AI development, cybersecurity,
+             and national technology initiatives.</p>
+        </div>
+      </div>
 
-View Charter
+      <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
+        <div class="gov-card">
+          <div class="gov-card-icon">
+            <i class="fa-solid fa-coins" aria-hidden="true"></i>
+          </div>
+          <h6>Ministry of Finance</h6>
+          <p>Responsible for national economic policy, fiscal management,
+             and regulation of the Nexora Credit (NXC) currency.</p>
+        </div>
+      </div>
 
-</a>
+      <div class="col-md-4" data-aos="fade-up" data-aos-delay="300">
+        <div class="gov-card">
+          <div class="gov-card-icon">
+            <i class="fa-solid fa-building-columns" aria-hidden="true"></i>
+          </div>
+          <h6>Ministry of Infrastructure</h6>
+          <p>Manages transportation, ports, airports, energy infrastructure,
+             and smart-city planning.</p>
+        </div>
+      </div>
 
-<a href="nexora_corporate_charter.pdf"
-class="btn btn-outline-primary"
-download>
+    </div>
 
-Download PDF
+    <!-- Institutions -->
+    <div class="row g-4">
 
-</a>
+      <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
+        <div class="gov-card">
+          <div class="gov-card-icon">
+            <i class="fa-solid fa-bank" aria-hidden="true"></i>
+          </div>
+          <h6>Nexora Central Bank</h6>
+          <p>Supervises the Nexora Credit (NXC) currency and maintains
+             national financial stability.</p>
+        </div>
+      </div>
 
-</div>
+      <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
+        <div class="gov-card">
+          <div class="gov-card-icon">
+            <i class="fa-solid fa-passport" aria-hidden="true"></i>
+          </div>
+          <h6>Nexora Immigration Authority</h6>
+          <p>Manages border control, visas, and entry regulations
+             for all international visitors.</p>
+        </div>
+      </div>
 
+      <div class="col-md-4" data-aos="fade-up" data-aos-delay="300">
+        <div class="gov-card">
+          <div class="gov-card-icon">
+            <i class="fa-solid fa-rocket" aria-hidden="true"></i>
+          </div>
+          <h6>Nexora Space &amp; Research Agency</h6>
+          <p>Leads aerospace research, satellite programs, and
+             advanced scientific exploration.</p>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
 </section>
 
-<section id="investors" class="section bg-white">
+<!-- ============================================================
+     ISLAND MAP
+     ============================================================ -->
+<section id="map" class="section map-cta" aria-labelledby="map-heading">
+  <div class="container" style="position:relative;z-index:1;">
 
-<div class="container text-center">
+    <div class="row align-items-center g-5">
 
-<h2 class="section-title">Founding Investors</h2>
+      <div class="col-lg-5" data-aos="fade-right">
+        <span class="section-label">Explore</span>
+        <h2 class="section-title light" id="map-heading">Nexora Island Interactive Map</h2>
+        <p class="section-subtitle light mb-4">
+          Discover Nexora's smart cities, technology districts,
+          transport infrastructure, and national facilities through
+          the fully interactive island map.
+        </p>
+        <a href="map.html" class="btn-nexora" aria-label="Open Nexora Island interactive map">
+          <i class="fa-solid fa-map-location-dot" aria-hidden="true"></i>
+          Open Interactive Map
+        </a>
+      </div>
 
-<p class="mb-5">
+      <div class="col-lg-7" data-aos="fade-left" data-aos-delay="150">
+        <a href="map.html" class="map-preview d-block" aria-label="Preview of Nexora Island map">
+          <svg viewBox="0 0 600 380" xmlns="http://www.w3.org/2000/svg" role="img"
+               aria-label="Nexora Island map preview" style="display:block;">
+            <rect width="600" height="380" fill="#0a1740"/>
+            <!-- Ocean waves -->
+            <path d="M0 0 h600 v380 H0Z" fill="#0a1740"/>
+            <!-- Island -->
+            <path d="M120 80 Q250 25 420 90 Q510 155 495 255 Q455 340 335 360 Q210 365 120 310 Q55 255 70 160 Z"
+                  fill="#e6edff" stroke="#3e63ff" stroke-width="3"/>
+            <!-- Roads -->
+            <line x1="205" y1="192" x2="390" y2="192" stroke="#6c757d" stroke-width="4" stroke-linecap="round"/>
+            <line x1="205" y1="192" x2="178" y2="276" stroke="#6c757d" stroke-width="4" stroke-linecap="round"/>
+            <line x1="390" y1="192" x2="455" y2="258" stroke="#6c757d" stroke-width="4" stroke-linecap="round"/>
+            <!-- Metro -->
+            <line x1="276" y1="138" x2="348" y2="198" stroke="#ff3b3b" stroke-width="2" stroke-dasharray="6"/>
+            <line x1="348" y1="198" x2="216" y2="216" stroke="#ff3b3b" stroke-width="2" stroke-dasharray="6"/>
+            <!-- Cities -->
+            <circle cx="276" cy="138" r="7" fill="#ff6b6b" stroke="white" stroke-width="2"/>
+            <circle cx="360" cy="204" r="7" fill="#ff6b6b" stroke="white" stroke-width="2"/>
+            <circle cx="216" cy="216" r="7" fill="#ff6b6b" stroke="white" stroke-width="2"/>
+            <!-- Infrastructure -->
+            <circle cx="178" cy="280" r="7" fill="#ffd43b" stroke="#222" stroke-width="1.5"/>
+            <circle cx="456" cy="262" r="7" fill="#ffd43b" stroke="#222" stroke-width="1.5"/>
+            <circle cx="300" cy="280" r="7" fill="#ffd43b" stroke="#222" stroke-width="1.5"/>
+            <!-- Labels -->
+            <text x="284" y="130" font-size="10" fill="#111" font-family="system-ui" font-weight="700">Nexora City</text>
+            <text x="366" y="196" font-size="10" fill="#111" font-family="system-ui" font-weight="700">Techno City</text>
+            <text x="222" y="208" font-size="10" fill="#111" font-family="system-ui" font-weight="700">Research City</text>
+            <text x="186" y="272" font-size="9" fill="#333" font-family="system-ui">Port</text>
+            <text x="462" y="254" font-size="9" fill="#333" font-family="system-ui">Airport</text>
+            <text x="308" y="272" font-size="9" fill="#333" font-family="system-ui">Space Ctr</text>
+          </svg>
+        </a>
+      </div>
 
-Nexora Island was established through the collaborative vision and
-investment of its founding members. These core investors contributed
-to the creation of Nexora Corporation and the development of the
-Nexora Island technological ecosystem.
+    </div>
 
-</p>
-
-<div class="row">
-
-<div class="col-md-3">
-
-<div class="card-modern">
-
-<h5>Saksham Shekher</h5>
-<p>Core Investor</p>
-
-</div>
-
-</div>
-
-<div class="col-md-3 mt-2">
-
-<div class="card-modern">
-
-<h5>Ronak Prajapat</h5>
-<p>Core Investor</p>
-
-</div>
-
-</div>
-
-<div class="col-md-3 mt-2">
-
-<div class="card-modern">
-
-<h5>Ayan Kar</h5>
-<p>Core Investor</p>
-
-</div>
-
-</div>
-
-<div class="col-md-3 mt-2">
-
-<div class="card-modern">
-
-<h5>Aryan Ponkiya</h5>
-<p>Core Investor</p>
-
-</div>
-
-</div>
-
-</div>
-
-</div>
-
+  </div>
 </section>
 
-<footer>
+<!-- ============================================================
+     VISA
+     ============================================================ -->
+<section id="visa" class="section bg-section-alt" aria-labelledby="visa-heading">
+  <div class="container">
 
-<p>© 2026 Nexora Island Government</p>
-<p>Nexora Corporation • Registered on Nexora Island</p>
+    <div class="text-center mb-5" data-aos="fade-up">
+      <span class="section-label">Entry to Nexora</span>
+      <h2 class="section-title" id="visa-heading">Visa on Arrival</h2>
+      <p class="section-subtitle">
+        International visitors may enter Nexora Island through our
+        streamlined Visa on Arrival program.
+      </p>
+    </div>
 
+    <div class="row g-4 align-items-stretch">
+
+      <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
+        <div class="gov-card h-100">
+          <div class="gov-card-icon">
+            <i class="fa-solid fa-earth-americas" aria-hidden="true"></i>
+          </div>
+          <h5>Eligibility</h5>
+          <p>
+            Citizens of most countries may apply for a Visa on Arrival when
+            entering Nexora Island through Nexora International Airport or
+            Nexora International Port.
+          </p>
+          <div class="visa-badge mt-3">
+            <i class="fa-solid fa-circle-check" aria-hidden="true"></i>
+            Most nationalities eligible
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
+        <div class="gov-card h-100">
+          <div class="gov-card-icon">
+            <i class="fa-solid fa-list-check" aria-hidden="true"></i>
+          </div>
+          <h5>Requirements</h5>
+          <div class="mt-2">
+            <div class="visa-step">
+              <div class="visa-step-num">1</div>
+              <div class="visa-step-text">
+                <strong>Valid Passport</strong>
+                <span>Must be valid for the duration of stay</span>
+              </div>
+            </div>
+            <div class="visa-step">
+              <div class="visa-step-num">2</div>
+              <div class="visa-step-text">
+                <strong>Return or Onward Ticket</strong>
+                <span>Proof of departure from Nexora</span>
+              </div>
+            </div>
+            <div class="visa-step">
+              <div class="visa-step-num">3</div>
+              <div class="visa-step-text">
+                <strong>Accommodation Confirmation</strong>
+                <span>Hotel booking or invitation letter</span>
+              </div>
+            </div>
+            <div class="visa-step">
+              <div class="visa-step-num">4</div>
+              <div class="visa-step-text">
+                <strong>Visa Processing Fee</strong>
+                <span>Payable at point of entry</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-4" data-aos="fade-up" data-aos-delay="300">
+        <div class="gov-card h-100">
+          <div class="gov-card-icon">
+            <i class="fa-solid fa-calendar-days" aria-hidden="true"></i>
+          </div>
+          <h5>Visa Duration</h5>
+          <p>
+            The standard Visa on Arrival allows visitors to remain in
+            Nexora Island for up to
+            <strong style="color:var(--primary);">30 days</strong>,
+            with optional extensions through the Nexora Immigration Office.
+          </p>
+          <div class="mt-3 p-3 rounded-3" style="background:rgba(30,64,175,.05);border:1px solid rgba(30,64,175,.12);">
+            <div style="font-size:.8rem;font-weight:700;color:var(--primary);margin-bottom:.3rem;">
+              <i class="fa-solid fa-circle-info me-1" aria-hidden="true"></i>
+              Entry Points
+            </div>
+            <div style="font-size:.83rem;color:var(--text-muted);">
+              Nexora International Airport<br>
+              Nexora International Port
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+<!-- ============================================================
+     CHARTER
+     ============================================================ -->
+<section id="charter" class="section" aria-labelledby="charter-heading">
+  <div class="container">
+
+    <div class="text-center mb-5" data-aos="fade-up">
+      <span class="section-label">Legal Foundation</span>
+      <h2 class="section-title" id="charter-heading">Nexora Corporation Charter</h2>
+    </div>
+
+    <div data-aos="fade-up" data-aos-delay="100">
+      <div class="charter-card text-center">
+        <div class="charter-icon">
+          <i class="fa-solid fa-file-contract" aria-hidden="true"></i>
+        </div>
+        <h3 style="font-size:1.35rem;font-weight:800;color:var(--dark);margin-bottom:.75rem;">
+          Official Founding Document
+        </h3>
+        <p style="color:var(--text-muted);max-width:460px;margin:0 auto 2rem;">
+          The Nexora Corporation Charter is the official founding document
+          establishing the governance structure, operational mandate, and
+          legal framework of Nexora Corporation.
+        </p>
+        <div class="d-flex gap-3 justify-content-center flex-wrap">
+          <a href="nexora_corporate_charter.pdf" class="btn-nexora" target="_blank"
+             rel="noopener" aria-label="View Nexora Corporate Charter PDF">
+            <i class="fa-solid fa-eye" aria-hidden="true"></i>
+            View Charter
+          </a>
+          <a href="nexora_corporate_charter.pdf" download
+             class="btn-outline-nexora"
+             style="color:var(--primary);border-color:rgba(30,64,175,.4);background:transparent;"
+             aria-label="Download Nexora Corporate Charter PDF">
+            <i class="fa-solid fa-download" aria-hidden="true"></i>
+            Download PDF
+          </a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ============================================================
+     INVESTORS
+     ============================================================ -->
+<section id="investors" class="section bg-section-alt" aria-labelledby="investors-heading">
+  <div class="container">
+
+    <div class="text-center mb-5" data-aos="fade-up">
+      <span class="section-label">Founding Members</span>
+      <h2 class="section-title" id="investors-heading">Core Investors</h2>
+      <p class="section-subtitle">
+        Nexora Island was established through the collaborative vision and
+        investment of its founding members, who contributed to the creation
+        of Nexora Corporation and the Nexora Island technological ecosystem.
+      </p>
+    </div>
+
+    <div class="row g-4 justify-content-center">
+
+      <div class="col-6 col-md-3" data-aos="fade-up" data-aos-delay="100">
+        <div class="investor-card">
+          <div class="investor-avatar">SS</div>
+          <h5>Saksham Shekher</h5>
+          <div class="investor-role">Core Investor</div>
+        </div>
+      </div>
+
+      <div class="col-6 col-md-3" data-aos="fade-up" data-aos-delay="200">
+        <div class="investor-card">
+          <div class="investor-avatar">RP</div>
+          <h5>Ronak Prajapat</h5>
+          <div class="investor-role">Core Investor</div>
+        </div>
+      </div>
+
+      <div class="col-6 col-md-3" data-aos="fade-up" data-aos-delay="300">
+        <div class="investor-card">
+          <div class="investor-avatar">AK</div>
+          <h5>Ayan Kar</h5>
+          <div class="investor-role">Core Investor</div>
+        </div>
+      </div>
+
+      <div class="col-6 col-md-3" data-aos="fade-up" data-aos-delay="400">
+        <div class="investor-card">
+          <div class="investor-avatar">AP</div>
+          <h5>Aryan Ponkiya</h5>
+          <div class="investor-role">Core Investor</div>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+<!-- ============================================================
+     FOOTER
+     ============================================================ -->
+<footer class="footer" role="contentinfo">
+  <div class="container">
+
+    <div class="row g-5">
+
+      <div class="col-lg-4">
+        <div class="footer-brand">
+          <span style="color:var(--accent);">⬡</span> NEXORA ISLAND
+        </div>
+        <p class="footer-tagline">
+          A Sovereign Innovation Nation — Est. 2026<br>
+          Advanced Technology · Digital Governance · Economic Leadership
+        </p>
+        <p style="font-size:.8rem;color:rgba(255,255,255,.35);">
+          © 2026 Nexora Island Government.<br>
+          All rights reserved.
+        </p>
+      </div>
+
+      <div class="col-sm-6 col-lg-2">
+        <div class="footer-heading">Navigation</div>
+        <ul class="footer-links">
+          <li><a href="#about">About Nexora</a></li>
+          <li><a href="#government">Government</a></li>
+          <li><a href="#structure">Gov. Structure</a></li>
+          <li><a href="#map">Island Map</a></li>
+        </ul>
+      </div>
+
+      <div class="col-sm-6 col-lg-2">
+        <div class="footer-heading">Services</div>
+        <ul class="footer-links">
+          <li><a href="#visa">Visa on Arrival</a></li>
+          <li><a href="#charter">Corporation Charter</a></li>
+          <li><a href="#investors">Investors</a></li>
+          <li><a href="map.html">Interactive Map</a></li>
+        </ul>
+      </div>
+
+      <div class="col-lg-4">
+        <div class="footer-heading">About Nexora Corporation</div>
+        <p style="font-size:.85rem;color:rgba(255,255,255,.5);line-height:1.65;">
+          Nexora Corporation is the primary economic and infrastructure entity
+          of Nexora Island, responsible for technology innovation, global
+          partnerships, and the development of the Nexora Credit (NXC).
+        </p>
+        <p style="font-size:.8rem;color:rgba(255,255,255,.35);margin:0;">
+          Nexora Corporation · Registered on Nexora Island
+        </p>
+      </div>
+
+    </div>
+
+    <div class="footer-bottom">
+      <div class="row align-items-center">
+        <div class="col-md-6">
+          <span>© 2026 Nexora Island Government · Nexora Corporation</span>
+        </div>
+        <div class="col-md-6 text-md-end mt-2 mt-md-0">
+          <a href="#home" style="color:rgba(255,255,255,.4);text-decoration:none;font-size:.8rem;">
+            Back to top <i class="fa-solid fa-arrow-up ms-1" aria-hidden="true"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+
+  </div>
 </footer>
 
+<!-- ============================================================
+     SCRIPTS
+     ============================================================ -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+<script>
+// AOS init
+if (typeof AOS !== 'undefined') AOS.init({ duration: 700, once: true, offset: 60 });
+
+// ── Navbar scroll effect ──────────────────────────────────────
+const nav = document.getElementById('mainNav');
+function handleScroll() {
+  nav.classList.toggle('scrolled', window.scrollY > 60);
+  scrollTopBtn.classList.toggle('visible', window.scrollY > 400);
+}
+window.addEventListener('scroll', handleScroll, { passive: true });
+
+// ── Active nav link ───────────────────────────────────────────
+const sections = document.querySelectorAll('section[id]');
+const navLinks = document.querySelectorAll('.nav-link');
+
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      navLinks.forEach(l => l.classList.remove('active'));
+      const active = document.querySelector(`.nav-link[href="#${entry.target.id}"]`);
+      if (active) active.classList.add('active');
+    }
+  });
+}, { rootMargin: '-40% 0px -55% 0px' });
+
+sections.forEach(s => observer.observe(s));
+
+// ── Scroll to top ─────────────────────────────────────────────
+const scrollTopBtn = document.getElementById('scrollTop');
+scrollTopBtn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+
+// ── Animated counters ─────────────────────────────────────────
+const counters = document.querySelectorAll('[data-count]');
+const countObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (!entry.isIntersecting) return;
+    const el = entry.target;
+    const target = parseInt(el.dataset.count, 10);
+    const duration = 1400;
+    const start = performance.now();
+    function step(now) {
+      const progress = Math.min((now - start) / duration, 1);
+      const eased = 1 - Math.pow(1 - progress, 3);
+      el.textContent = Math.round(eased * target);
+      if (progress < 1) requestAnimationFrame(step);
+    }
+    requestAnimationFrame(step);
+    countObserver.unobserve(el);
+  });
+}, { threshold: 0.5 });
+
+counters.forEach(c => countObserver.observe(c));
+
+// ── Hero particles ────────────────────────────────────────────
+(function spawnParticles() {
+  const container = document.getElementById('heroParticles');
+  if (!container) return;
+  const colors = ['rgba(6,182,212,.5)', 'rgba(59,130,246,.4)', 'rgba(255,255,255,.3)'];
+  for (let i = 0; i < 24; i++) {
+    const p = document.createElement('div');
+    p.className = 'hero-particle';
+    const size = Math.random() * 6 + 3;
+    p.style.cssText = `
+      width:${size}px;height:${size}px;
+      background:${colors[Math.floor(Math.random() * colors.length)]};
+      left:${Math.random() * 100}%;
+      animation-duration:${Math.random() * 12 + 8}s;
+      animation-delay:${Math.random() * 8}s;
+    `;
+    container.appendChild(p);
+  }
+})();
+</script>
 
 </body>
 </html>
