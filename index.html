@@ -123,7 +123,7 @@
    ============================================================ */
 *, *::before, *::after { box-sizing: border-box; }
 
-html { scroll-behavior: smooth; overflow-x: hidden; }
+html { scroll-behavior: smooth; overflow-x: hidden; scroll-padding-top: 72px; }
 
 body {
   font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
@@ -699,8 +699,10 @@ img { max-width: 100%; height: auto; }
 }
 
 .visa-step-text span {
+  display: block;
   font-size: .83rem;
   color: var(--text-muted);
+  margin-top: .15rem;
 }
 
 .visa-badge {
@@ -1395,6 +1397,16 @@ img { max-width: 100%; height: auto; }
             entering Nexora Island through Nexora International Airport or
             Nexora International Port.
           </p>
+          <div class="mt-3 p-3 rounded-3" style="background:rgba(34,197,94,.05);border:1px solid rgba(34,197,94,.2);">
+            <div style="font-size:.8rem;font-weight:700;color:#16a34a;margin-bottom:.3rem;">
+              <i class="fa-solid fa-circle-check me-1" aria-hidden="true"></i>
+              Eligible Regions
+            </div>
+            <div style="font-size:.83rem;color:var(--text-muted);">
+              Africa · Americas · Asia-Pacific<br>
+              Europe · Middle East · South Asia
+            </div>
+          </div>
           <div class="visa-badge mt-3">
             <i class="fa-solid fa-circle-check" aria-hidden="true"></i>
             Most nationalities eligible
@@ -1413,28 +1425,28 @@ img { max-width: 100%; height: auto; }
               <div class="visa-step-num">1</div>
               <div class="visa-step-text">
                 <strong>Valid Passport</strong>
-                <span>Must be valid for the duration of stay</span>
+                <span>Valid for at least 6 months beyond your departure date</span>
               </div>
             </div>
             <div class="visa-step">
               <div class="visa-step-num">2</div>
               <div class="visa-step-text">
                 <strong>Return or Onward Ticket</strong>
-                <span>Proof of departure from Nexora</span>
+                <span>Confirmed proof of departure from Nexora</span>
               </div>
             </div>
             <div class="visa-step">
               <div class="visa-step-num">3</div>
               <div class="visa-step-text">
                 <strong>Accommodation Confirmation</strong>
-                <span>Hotel booking or invitation letter</span>
+                <span>Hotel booking or official invitation letter</span>
               </div>
             </div>
             <div class="visa-step">
               <div class="visa-step-num">4</div>
               <div class="visa-step-text">
                 <strong>Visa Processing Fee</strong>
-                <span>Payable at point of entry</span>
+                <span>50 NXC — payable at the point of entry</span>
               </div>
             </div>
           </div>
@@ -1451,7 +1463,7 @@ img { max-width: 100%; height: auto; }
             The standard Visa on Arrival allows visitors to remain in
             Nexora Island for up to
             <strong style="color:var(--primary);">30 days</strong>,
-            with optional extensions through the Nexora Immigration Office.
+            with optional extensions available through the Nexora Immigration Authority.
           </p>
           <div class="mt-3 p-3 rounded-3" style="background:rgba(30,64,175,.05);border:1px solid rgba(30,64,175,.12);">
             <div style="font-size:.8rem;font-weight:700;color:var(--primary);margin-bottom:.3rem;">
@@ -1463,9 +1475,25 @@ img { max-width: 100%; height: auto; }
               Nexora International Port
             </div>
           </div>
+          <div class="mt-3 p-3 rounded-3" style="background:rgba(6,182,212,.05);border:1px solid rgba(6,182,212,.18);">
+            <div style="font-size:.8rem;font-weight:700;color:var(--accent);margin-bottom:.3rem;">
+              <i class="fa-solid fa-arrows-rotate me-1" aria-hidden="true"></i>
+              Extension
+            </div>
+            <div style="font-size:.83rem;color:var(--text-muted);">
+              Up to 30 additional days · 30 NXC fee
+            </div>
+          </div>
         </div>
       </div>
 
+    </div>
+
+    <div class="text-center mt-5" data-aos="fade-up">
+      <a href="mailto:immigration@nexora.gov" class="btn-nexora btn d-inline-flex align-items-center gap-2">
+        <i class="fa-solid fa-envelope" aria-hidden="true"></i>
+        Contact Immigration Authority
+      </a>
     </div>
 
   </div>
