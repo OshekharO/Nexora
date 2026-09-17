@@ -521,10 +521,23 @@ function selectPoint(el){
   document.getElementById('infoStat2Label').textContent=data.stat2Label;
 }
 const tooltip=document.getElementById('tooltip');
+// Throttle tooltip positioning to display refresh rate via requestAnimationFrame to avoid main-thread style thrashing during mouse move
+let tooltipRafId=null;
 document.querySelectorAll('[data-title]').forEach(el=>{
   el.addEventListener('mouseenter',()=>{tooltip.textContent=el.dataset.title;tooltip.classList.add('visible');});
-  el.addEventListener('mousemove',e=>{tooltip.style.left=(e.clientX+14)+'px';tooltip.style.top=(e.clientY-36)+'px';});
-  el.addEventListener('mouseleave',()=>tooltip.classList.remove('visible'));
+  el.addEventListener('mousemove',e=>{
+    const x=e.clientX+14,y=e.clientY-36;
+    if(tooltipRafId)cancelAnimationFrame(tooltipRafId);
+    tooltipRafId=requestAnimationFrame(()=>{
+      tooltip.style.left=x+'px';
+      tooltip.style.top=y+'px';
+      tooltipRafId=null;
+    });
+  });
+  el.addEventListener('mouseleave',()=>{
+    if(tooltipRafId){cancelAnimationFrame(tooltipRafId);tooltipRafId=null;}
+    tooltip.classList.remove('visible');
+  });
   el.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();selectPoint(el);}});
 });
 function filterMap(type,btn){
