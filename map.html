@@ -483,6 +483,22 @@ body{
 </main>
 
 <script>
+// Cache DOM elements for repeated interactions to avoid querySelector lookups on hot paths
+const dom = {
+  tooltip: document.getElementById('tooltip'),
+  ring: document.getElementById('activeRing'),
+  placeholder: document.getElementById('infoPlaceholder'),
+  content: document.getElementById('infoContent'),
+  typeBadge: document.getElementById('infoTypeBadge'),
+  title: document.getElementById('infoTitle'),
+  desc: document.getElementById('infoDesc'),
+  stat1: document.getElementById('infoStat1'),
+  stat1Label: document.getElementById('infoStat1Label'),
+  stat2: document.getElementById('infoStat2'),
+  stat2Label: document.getElementById('infoStat2Label'),
+  filterBtns: document.querySelectorAll('.filter-btn')
+};
+
 const pointData={};
 document.querySelectorAll('[data-title]').forEach(el=>{
   pointData[el.id]={
@@ -496,62 +512,74 @@ function selectPoint(el){
   const id=el.id,data=pointData[id];
   if(!data)return;
   currentId=id;
-  const ring=document.getElementById('activeRing');
-  ring.setAttribute('cx',el.getAttribute('cx'));
-  ring.setAttribute('cy',el.getAttribute('cy'));
-  ring.setAttribute('r',parseFloat(el.getAttribute('r'))+8);
-  ring.setAttribute('display','');
-  ring.setAttribute('stroke',data.type==='city'?'var(--city)':'var(--infra)');
-  document.getElementById('infoPlaceholder').style.display='none';
-  const content=document.getElementById('infoContent');
-  content.style.display='block';
-  const badge=document.getElementById('infoTypeBadge');
+  dom.ring.setAttribute('cx',el.getAttribute('cx'));
+  dom.ring.setAttribute('cy',el.getAttribute('cy'));
+  dom.ring.setAttribute('r',parseFloat(el.getAttribute('r'))+8);
+  dom.ring.setAttribute('display','');
+  dom.ring.setAttribute('stroke',data.type==='city'?'var(--city)':'var(--infra)');
+  dom.placeholder.style.display='none';
+  dom.content.style.display='block';
   if(data.type==='city'){
-    badge.className='info-type-badge info-type-city';
-    badge.innerHTML='<i class="fa-solid fa-city"></i> City';
+    dom.typeBadge.className='info-type-badge info-type-city';
+    dom.typeBadge.innerHTML='<i class="fa-solid fa-city"></i> City';
   }else{
-    badge.className='info-type-badge info-type-infra';
-    badge.innerHTML='<i class="fa-solid fa-industry"></i> Infrastructure';
+    dom.typeBadge.className='info-type-badge info-type-infra';
+    dom.typeBadge.innerHTML='<i class="fa-solid fa-industry"></i> Infrastructure';
   }
-  document.getElementById('infoTitle').textContent=data.title;
-  document.getElementById('infoDesc').textContent=data.desc;
-  document.getElementById('infoStat1').textContent=data.stat1;
-  document.getElementById('infoStat1Label').textContent=data.stat1Label;
-  document.getElementById('infoStat2').textContent=data.stat2;
-  document.getElementById('infoStat2Label').textContent=data.stat2Label;
+  dom.title.textContent=data.title;
+  dom.desc.textContent=data.desc;
+  dom.stat1.textContent=data.stat1;
+  dom.stat1Label.textContent=data.stat1Label;
+  dom.stat2.textContent=data.stat2;
+  dom.stat2Label.textContent=data.stat2Label;
 }
-const tooltip=document.getElementById('tooltip');
-// Throttle tooltip positioning to display refresh rate via requestAnimationFrame to avoid main-thread style thrashing during mouse move
-let tooltipRafId=null;
-document.querySelectorAll('[data-title]').forEach(el=>{
-  el.addEventListener('mouseenter',()=>{tooltip.textContent=el.dataset.title;tooltip.classList.add('visible');});
+
+// Efficient tooltip positioning: batch mouse coordinates and request animation frame only when no frame is pending
+let tooltipRafPending=false;
+let mouseX=0, mouseY=0;
+
+function updateTooltipPos(){
+  dom.tooltip.style.left=mouseX+'px';
+  dom.tooltip.style.top=mouseY+'px';
+  tooltipRafPending=false;
+}
+
+Object.values(pointData).forEach(({el, title})=>{
+  el.addEventListener('mouseenter',()=>{
+    dom.tooltip.textContent=title;
+    dom.tooltip.classList.add('visible');
+  });
   el.addEventListener('mousemove',e=>{
-    const x=e.clientX+14,y=e.clientY-36;
-    if(tooltipRafId)cancelAnimationFrame(tooltipRafId);
-    tooltipRafId=requestAnimationFrame(()=>{
-      tooltip.style.left=x+'px';
-      tooltip.style.top=y+'px';
-      tooltipRafId=null;
-    });
+    mouseX=e.clientX+14;
+    mouseY=e.clientY-36;
+    if(!tooltipRafPending){
+      tooltipRafPending=true;
+      requestAnimationFrame(updateTooltipPos);
+    }
   });
   el.addEventListener('mouseleave',()=>{
-    if(tooltipRafId){cancelAnimationFrame(tooltipRafId);tooltipRafId=null;}
-    tooltip.classList.remove('visible');
+    dom.tooltip.classList.remove('visible');
   });
-  el.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();selectPoint(el);}});
+  el.addEventListener('keydown',e=>{
+    if(e.key==='Enter'||e.key===' '){
+      e.preventDefault();
+      selectPoint(el);
+    }
+  });
 });
+
 function filterMap(type,btn){
-  document.querySelectorAll('.filter-btn').forEach(b=>{b.classList.remove('active');b.setAttribute('aria-pressed','false');});
+  dom.filterBtns.forEach(b=>{b.classList.remove('active');b.setAttribute('aria-pressed','false');});
   btn.classList.add('active');btn.setAttribute('aria-pressed','true');
-  document.querySelectorAll('[data-type]').forEach(el=>{
-    el.style.display=(type==='all'||el.dataset.type===type)?'':'none';
+  Object.values(pointData).forEach(({el, type: pointType})=>{
+    el.style.display=(type==='all'||pointType===type)?'':'none';
   });
   if(currentId&&type!=='all'){
     const d=pointData[currentId];
     if(d&&d.type!==type){
-      document.getElementById('infoPlaceholder').style.display='';
-      document.getElementById('infoContent').style.display='none';
-      document.getElementById('activeRing').setAttribute('display','none');
+      dom.placeholder.style.display='';
+      dom.content.style.display='none';
+      dom.ring.setAttribute('display','none');
       currentId=null;
     }
   }
